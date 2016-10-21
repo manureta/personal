@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" /> 
+    <link rel="stylesheet" href="https://openlayers.org/en/v3.19.0/css/ol.css" type="text/css">
+    <style>
+      .map {
+        height: 100%;
+        width: 100%;
+      }
+      .map h2 {   margin-left: 50px;
+    position: absolute;
+    z-index: 1000;}
+    </style>
+    <script src="https://openlayers.org/en/v3.19.0/build/ol.js" type="text/javascript"></script>
+    <title>Ejemplo de mapa OL3 - OSM</title>
+  </head>
+  <body>
+    <div id="map" class="map">
+<h2>Mapa de Chajarí</h2></div>
+    <script type="text/javascript">
+      var map = new ol.Map({
+        target: 'map',
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM()
+          })
+        ],
+        view: new ol.View({
+          center: ol.proj.fromLonLat([-57.9848989,-30.7565741]),
+          zoom: 14
+        })
+      });
+    </script>
+  </body>
+</html>
