@@ -1,35 +1,278 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
   <head>
-    <meta charset="utf-8" /> 
-    <link rel="stylesheet" href="https://openlayers.org/en/v3.19.0/css/ol.css" type="text/css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mapa interactivo de Chajarí, Entre Ríos, Argentina usando OpenLayers y OpenStreetMap">
+    <meta name="keywords" content="Chajarí, Entre Ríos, Argentina, mapa, OpenLayers, OpenStreetMap">
+    <meta name="author" content="Manuel Retamozo - Geolibre">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@9.0.0/ol.css" type="text/css">
     <style>
-      .map {
-        height: 100%;
-        width: 100%;
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
-      .map h2 {   margin-left: 50px;
-    position: absolute;
-    z-index: 1000;}
+
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #040420 0%, #0a0a2e 50%, #16213e 100%);
+        min-height: 100vh;
+        overflow: hidden;
+      }
+
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: rgba(4, 4, 32, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .header h1 {
+        color: #E4DCE6;
+        font-size: 1.5rem;
+        font-weight: 300;
+        margin: 0;
+      }
+
+      .header-controls {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+      }
+
+      .back-button {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 6px;
+        padding: 0.5rem 1rem;
+        color: #E4DCE6;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+      }
+
+      .back-button:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-1px);
+      }
+
+      .map-container {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow: hidden;
+      }
+
+      #map {
+        width: 100%;
+        height: 100%;
+      }
+
+      .info-panel {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        z-index: 1000;
+        background: rgba(4, 4, 32, 0.95);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        padding: 1rem;
+        max-width: 300px;
+        color: #E4DCE6;
+      }
+
+      .info-panel h3 {
+        color: #D4CCD6;
+        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+        font-weight: 300;
+      }
+
+      .info-panel p {
+        font-size: 0.9rem;
+        color: #CCCCCC;
+        line-height: 1.4;
+        margin: 0;
+      }
+
+      .coordinates {
+        position: fixed;
+        top: 90px;
+        right: 20px;
+        z-index: 1000;
+        background: rgba(4, 4, 32, 0.9);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 6px;
+        padding: 0.75rem;
+        font-family: 'Courier New', monospace;
+        font-size: 0.8rem;
+        color: #E4DCE6;
+        min-width: 200px;
+      }
+
+      @media (max-width: 768px) {
+        .header {
+          padding: 0.75rem 1rem;
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+
+        .header h1 {
+          font-size: 1.2rem;
+        }
+
+        .map-container {
+          top: 90px;
+        }
+
+        .info-panel {
+          bottom: 10px;
+          left: 10px;
+          right: 10px;
+          max-width: none;
+        }
+
+        .coordinates {
+          top: 110px;
+          right: 10px;
+          left: 10px;
+          font-size: 0.7rem;
+        }
+      }
+
+      /* OpenLayers custom controls styling */
+      .ol-control {
+        background: rgba(4, 4, 32, 0.9) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-radius: 6px !important;
+      }
+
+      .ol-control button {
+        background: transparent !important;
+        color: #E4DCE6 !important;
+        border: none !important;
+      }
+
+      .ol-control button:hover {
+        background: rgba(255, 255, 255, 0.1) !important;
+      }
     </style>
-    <script src="https://openlayers.org/en/v3.19.0/build/ol.js" type="text/javascript"></script>
-    <title>Ejemplo de mapa OL3 - OSM</title>
+    
+    <script src="https://cdn.jsdelivr.net/npm/ol@9.0.0/dist/ol.js"></script>
+    <title>Mapa de Chajarí - OpenLayers</title>
   </head>
   <body>
-    <div id="map" class="map">
-<h2>Mapa de Chajarí</h2></div>
+    <header class="header">
+      <h1>Mapa de Chajarí, Entre Ríos</h1>
+      <div class="header-controls">
+        <a href="index.html" class="back-button">← Volver al inicio</a>
+      </div>
+    </header>
+
+    <div class="coordinates" id="coordinates">
+      Coordenadas: --
+    </div>
+
+    <div class="map-container">
+      <div id="map"></div>
+    </div>
+
+    <div class="info-panel">
+      <h3>Chajarí</h3>
+      <p>Ciudad ubicada en el departamento Federación, provincia de Entre Ríos, Argentina. Conocida por su producción citrícola y turismo termal.</p>
+    </div>
+
     <script type="text/javascript">
-      var map = new ol.Map({
+      // Crear el mapa con controles modernos usando sintaxis correcta de OpenLayers 9
+      const map = new ol.Map({
         target: 'map',
         layers: [
           new ol.layer.Tile({
-            source: new ol.source.OSM()
+            source: new ol.source.OSM({
+              attributions: [
+                '© OpenStreetMap contributors',
+                '© Manuel Retamozo - Geolibre'
+              ]
+            })
           })
         ],
         view: new ol.View({
-          center: ol.proj.fromLonLat([-57.9848989,-30.7565741]),
-          zoom: 14
+          center: ol.proj.fromLonLat([-57.9848989, -30.7565741]),
+          zoom: 14,
+          maxZoom: 18,
+          minZoom: 10
+        }),
+        controls: [
+          new ol.control.Attribution(),
+          new ol.control.Zoom(),
+          new ol.control.FullScreen({
+            tipLabel: 'Pantalla completa'
+          }),
+          new ol.control.ScaleLine({
+            units: 'metric'
+          }),
+          new ol.control.ZoomToExtent({
+            extent: ol.proj.transformExtent(
+              [-58.1, -30.9, -57.8, -30.6], 
+              'EPSG:4326', 
+              'EPSG:3857'
+            ),
+            tipLabel: 'Ajustar a Chajarí'
+          })
+        ]
+      });
+
+      // Mostrar coordenadas del mouse
+      const coordinatesElement = document.getElementById('coordinates');
+      map.on('pointermove', function(event) {
+        const coordinate = ol.proj.toLonLat(event.coordinate);
+        const lon = coordinate[0].toFixed(6);
+        const lat = coordinate[1].toFixed(6);
+        coordinatesElement.innerHTML = `Coordenadas: ${lat}°, ${lon}°`;
+      });
+
+      // Añadir marcador en el centro de Chajarí
+      const marker = new ol.Feature({
+        geometry: new ol.geom.Point(ol.proj.fromLonLat([-57.9848989, -30.7565741]))
+      });
+
+      const markerStyle = new ol.style.Style({
+        image: new ol.style.Circle({
+          radius: 8,
+          fill: new ol.style.Fill({color: '#ff4444'}),
+          stroke: new ol.style.Stroke({color: '#ffffff', width: 2})
         })
+      });
+
+      marker.setStyle(markerStyle);
+
+      const vectorSource = new ol.source.Vector({
+        features: [marker]
+      });
+
+      const markerLayer = new ol.layer.Vector({
+        source: vectorSource
+      });
+
+      map.addLayer(markerLayer);
+
+      // Hacer responsive el mapa
+      window.addEventListener('resize', function() {
+        map.updateSize();
       });
     </script>
   </body>
