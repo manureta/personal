@@ -7,7 +7,7 @@
     // define a Common JS module that relies on 'leaflet'
     } else if (typeof module !== 'undefined' && module.exports) {
         module.exports = factory(require('leaflet'), require('d3'), require('topojson'));
-    }else {
+    } else {
         factory(root.L, root.d3 , root.topojson);
     }
 }(function (L, d3, topojson) {
@@ -26,11 +26,9 @@
 		//layer is the map layer to be shown in the minimap
 		initialize: function (options) {
 			L.Util.setOptions(this, options);
-			console.log(this.options);
 		},
 
 		onAdd: function (map) {
-			console.log('onAdd()');
 
 			this._mainMap = map;
 
@@ -54,7 +52,6 @@
 		},
 
 		addTo: function (map) {
-			console.log('addTo()');
 			L.Control.prototype.addTo.call(this, map);
 			this.initCanvas();
 
@@ -95,7 +92,7 @@
 
 		  var that = this;
 		  d3.json(this.options.topojsonSrc, function (world) {
-			  that.globe = {type: "Sphere"},
+			  that.globe = {type: "Sphere"};
 	      that.land = topojson.feature(world, world.objects.land);
 			});
 
@@ -104,7 +101,6 @@
 		},
 
 		transitionMap: function (p) {
-			console.log('transtionMap');
 			var that = this;
 			var c = that.c;
 			var path = that.path;
@@ -129,7 +125,6 @@
 		},
 
 		_onMainMapMoved: function (e) {
-			console.log('mainmapmoved');
 			if (!this._miniMapMoving) {
 				this._mainMapMoving = true;
 
