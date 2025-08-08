@@ -12,11 +12,11 @@
     }
 
     body {
-      background: linear-gradient(135deg, #040420 0%, #0a0a2e 50%, #16213e 100%);
+      background: linear-gradient(135deg, #0f1419 0%, #1e2328 25%, #2a3441 50%, #364152 75%, #425063 100%);
       min-height: 100vh;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.6;
-      color: #E4DCE6;
+      color: #e8eaed;
     }
 
     .container {
@@ -27,16 +27,16 @@
 
     header {
       text-align: center;
-      margin-bottom: 3rem;
-      padding: 2rem 0;
+      margin-bottom: 1.5rem;
+      padding: 1.5rem 0;
     }
 
     h1 {
       font-size: 3rem;
       font-weight: 300;
       margin-bottom: 0.5rem;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-      background: linear-gradient(45deg, #E4DCE6, #D4CCD6);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      background: linear-gradient(45deg, #7dd3fc, #a78bfa);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -44,7 +44,7 @@
 
     .subtitle {
       font-size: 1.5rem;
-      color: #D4CCD6;
+      color: #94a3b8;
       font-weight: 300;
       margin-bottom: 2rem;
     }
@@ -54,31 +54,32 @@
       justify-content: center;
       gap: 1rem;
       flex-wrap: wrap;
-      margin-bottom: 3rem;
+      margin-bottom: 1.5rem;
     }
 
     .nav-link {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(71, 85, 105, 0.2);
+      border: 1px solid rgba(148, 163, 184, 0.2);
       border-radius: 8px;
       padding: 0.75rem 1.5rem;
       text-decoration: none;
-      color: #E4DCE6;
+      color: #e2e8f0;
       transition: all 0.3s ease;
       backdrop-filter: blur(10px);
     }
 
     .nav-link:hover {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(71, 85, 105, 0.4);
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      border-color: rgba(125, 211, 252, 0.4);
     }
 
     .section-title {
       font-size: 2rem;
       text-align: center;
       margin-bottom: 2rem;
-      color: #D4CCD6;
+      color: #94a3b8;
       font-weight: 300;
     }
 
@@ -90,41 +91,49 @@
     }
 
     .project-card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(51, 65, 85, 0.15);
+      border: 1px solid rgba(148, 163, 184, 0.15);
       border-radius: 12px;
-      padding: 2rem;
+      padding: 1.5rem;
       backdrop-filter: blur(10px);
       transition: all 0.3s ease;
+      position: relative;
     }
 
     .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      border-color: rgba(125, 211, 252, 0.3);
+      background: rgba(51, 65, 85, 0.25);
     }
 
     .project-title {
       font-size: 1.25rem;
       margin-bottom: 1rem;
-      color: #D0C0D0;
+      color: #cbd5e1;
     }
 
     .project-title a {
-      color: #D0C0D0;
+      color: #7dd3fc;
       text-decoration: none;
       border-bottom: 1px solid transparent;
-      transition: border-color 0.3s ease;
+      transition: all 0.3s ease;
     }
 
     .project-title a:hover {
-      border-bottom-color: #D0C0D0;
+      border-bottom-color: #7dd3fc;
+      color: #bae6fd;
     }
 
     .project-description {
-      color: #CCCCCC;
-      margin-bottom: 1.5rem;
-      font-size: 0.95rem;
+      color: #e1e8f0;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      max-height: 4.5rem;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      position: relative;
     }
 
     .project-details {
@@ -135,16 +144,17 @@
     }
 
     .detail-section h4 {
-      color: #D0C0D0;
+      color: #7dd3fc;
       font-size: 1rem;
       margin-bottom: 0.5rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(125, 211, 252, 0.2);
       padding-bottom: 0.25rem;
     }
 
     .detail-section p {
-      font-size: 0.9rem;
-      color: #CCCCCC;
+      font-size: 0.85rem;
+      color: #d0dae3;
+      line-height: 1.4;
     }
 
     footer {
@@ -155,7 +165,157 @@
     }
 
     footer a {
-      color: #D4CCD6;
+      color: #7dd3fc;
+    }
+
+    /* Sistema de pestañas */
+    .tabs-container {
+      margin-bottom: 2rem;
+    }
+
+    .tabs-nav {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    .tab-button {
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      color: #94a3b8;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .tab-button.active {
+      color: #7dd3fc;
+      border-bottom-color: #7dd3fc;
+    }
+
+    .tab-button:hover {
+      color: #bae6fd;
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .about-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .about-section {
+      background: rgba(51, 65, 85, 0.15);
+      border: 1px solid rgba(148, 163, 184, 0.15);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .about-section h3 {
+      color: #7dd3fc;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .about-section p {
+      color: #d0dae3;
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+
+    .skills-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .skill-tag {
+      background: rgba(125, 211, 252, 0.1);
+      border: 1px solid rgba(125, 211, 252, 0.2);
+      border-radius: 4px;
+      padding: 0.3rem 0.6rem;
+      font-size: 0.85rem;
+      color: #bae6fd;
+      text-align: center;
+    }
+
+    /* Elementos expandibles */
+
+    .expand-btn {
+      background: rgba(71, 85, 105, 0.6);
+      color: #e2e8f0;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      border-radius: 6px;
+      padding: 0.4rem 0.6rem;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin: 0.25rem 0 0.5rem 0;
+      box-shadow: none;
+      display: inline-block;
+    }
+
+    .expand-btn:hover {
+      background: rgba(71, 85, 105, 0.8);
+      border-color: rgba(125, 211, 252, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .project-details {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+      opacity: 0;
+      margin-top: 1rem;
+    }
+
+    .project-details.expanded {
+      max-height: 200px;
+      opacity: 1;
+    }
+
+    .project-description.expanded {
+      max-height: none;
+    }
+
+    .expand-description {
+      display: inline-block;
+      background: none;
+      padding: 0.3rem 0.6rem;
+      margin-left: 0.5rem;
+      font-size: 0.75rem;
+      color: #7dd3fc;
+      cursor: pointer;
+      border: 1px solid rgba(125, 211, 252, 0.3);
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      vertical-align: baseline;
+    }
+
+    .expand-description:hover {
+      background: rgba(125, 211, 252, 0.1);
+      border-color: rgba(125, 211, 252, 0.5);
     }
 
     @media (max-width: 768px) {
@@ -170,6 +330,7 @@
       .nav-links {
         flex-direction: column;
         align-items: center;
+        gap: 0.5rem;
       }
       
       .project-details {
@@ -178,6 +339,15 @@
       
       .projects-grid {
         grid-template-columns: 1fr;
+      }
+
+      .project-details.expanded {
+        max-height: 300px;
+      }
+
+      .expand-btn {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.6rem;
       }
     }
   </style>
@@ -197,8 +367,14 @@
     </header>
 
     <main>
-      <section>
-        <h2 class="section-title">Algunos trabajos realizados</h2>
+      <div class="tabs-container">
+        <nav class="tabs-nav">
+          <button class="tab-button active" onclick="switchTab(event, 'trabajos')">Trabajos Realizados</button>
+          <button class="tab-button" onclick="switchTab(event, 'about')">Sobre Manuel</button>
+        </nav>
+
+        <div id="trabajos" class="tab-content active">
+          <h2 class="section-title">Algunos trabajos realizados</h2>
         
         <div class="projects-grid">
           <article class="project-card">
@@ -206,8 +382,10 @@
               <a href="http://snmb.ambiente.gob.ar/" target="_blank">Sistema Nacional de Monitoreo de Bosques</a>
             </h3>
             <p class="project-description">
-              La plataforma SIG-WEB del Sistema Nacional de Monitoreo de Bosques de la República Argentina, que funciona en el entorno de la Secretaría de Ambiente y Desarrollo Sustentable de la Nación, se enmarca en el programa REDD+, el cual puede ser un instrumento de conservación de los bosques y de combate a la pobreza para los pueblos de los países en vías de desarrollo, o bien resultar un potencial sojuzgamiento de nuestros pueblos a los intereses de los países hegemónicos a nivel mundial.
+              Plataforma SIG-WEB del Sistema Nacional de Monitoreo de Bosques de Argentina, enmarcada en el programa REDD+ para conservación de bosques...
+              <button class="expand-description" onclick="toggleDescription(this)">Ver más</button>
             </p>
+            <button class="expand-btn" onclick="toggleDetails(this)">Ver detalles técnicos</button>
             <div class="project-details">
               <div class="detail-section">
                 <h4>Tareas</h4>
@@ -225,8 +403,10 @@
               <a href="http://190.188.234.6/mapa/" target="_blank">IDEHab - Infraestructura de Datos Habitacionales Georreferenciados</a>
             </h3>
             <p class="project-description">
-              IDEHab es una Infraestructura de Datos Habitacionales Georreferenciados de la provincia de Buenos Aires, surge como una iniciativa para publicar información del déficit urbano-habitacional y de las distintas intervenciones públicas referidas a: procesos de regularización urbana y dominial, producción de loteos sociales, financiamiento de programas habitacionales, planes de integración socio-urbana y demás acciones en materia de mejoramiento habitacional.
+              Infraestructura de Datos Habitacionales Georreferenciados de Buenos Aires para publicar información del déficit urbano-habitacional...
+              <button class="expand-description" onclick="toggleDescription(this)">Ver más</button>
             </p>
+            <button class="expand-btn" onclick="toggleDetails(this)">Ver detalles técnicos</button>
             <div class="project-details">
               <div class="detail-section">
                 <h4>Tareas</h4>
@@ -244,8 +424,10 @@
               <a href="http://www.bahra.gob.ar/" target="_blank">Base de Asentamientos Humanos de la República Argentina (BAHRA)</a>
             </h3>
             <p class="project-description">
-              La Base de Asentamientos Humanos de la República Argentina (BAHRA) es producto del trabajo conjunto entre el Ministerio de Educación, a través del Programa Nacional Mapa Educativo, el Instituto Nacional de Estadística y Censos (INDEC) y el Instituto Geográfico Nacional (IGN).
+              Base de Asentamientos Humanos de Argentina (BAHRA) - trabajo conjunto entre Ministerio de Educación, INDEC e IGN...
+              <button class="expand-description" onclick="toggleDescription(this)">Ver más</button>
             </p>
+            <button class="expand-btn" onclick="toggleDetails(this)">Ver detalles técnicos</button>
             <div class="project-details">
               <div class="detail-section">
                 <h4>Tareas</h4>
@@ -263,8 +445,10 @@
               <a href="http://www.indec.gob.ar/gis/index_sig.html" target="_blank">Visor de Información Geográfica - INDEC</a>
             </h3>
             <p class="project-description">
-              Este visor permite acceder a una selección de información correspondiente a datos geográficos, organización político administrativa y datos del Censo Nacional de Población, Hogares y Viviendas 2010.
+              Visor de información geográfica, organización político-administrativa y datos del Censo 2010...
+              <button class="expand-description" onclick="toggleDescription(this)">Ver más</button>
             </p>
+            <button class="expand-btn" onclick="toggleDetails(this)">Ver detalles técnicos</button>
             <div class="project-details">
               <div class="detail-section">
                 <h4>Tareas</h4>
@@ -283,8 +467,10 @@
               <a href="http://www.indec.gob.ar/ayuda_visor_territorio.pdf" target="_blank" style="font-size: 0.8em; margin-left: 0.5rem;">(Tutorial)</a>
             </h3>
             <p class="project-description">
-              Este es un sistema interactivo que permite consultar los nombres, códigos y ubicación de las distintas unidades geográficas empleadas por el INDEC con fines estadísticos.
+              Sistema interactivo para consultar nombres, códigos y ubicación de unidades geográficas del INDEC...
+              <button class="expand-description" onclick="toggleDescription(this)">Ver más</button>
             </p>
+            <button class="expand-btn" onclick="toggleDetails(this)">Ver detalles técnicos</button>
             <div class="project-details">
               <div class="detail-section">
                 <h4>Tareas</h4>
@@ -316,7 +502,53 @@
             </div>
           </article>
         </div>
-      </section>
+        </div>
+
+        <div id="about" class="tab-content">
+          <div class="about-content">
+            <div class="about-section">
+              <h3>Experiencia Profesional</h3>
+              <p><strong>Desarrollador GIS en INDEC</strong> (2012 - 2024)</p>
+              <p>12 años desarrollando y manteniendo aplicaciones GIS y sistemas de información geográfica para fines estadísticos en el Instituto Nacional de Estadística y Censos.</p>
+              <p><strong>Programador GIS en Ministerio de Ambiente y Desarrollo Sustentable</strong> (2007 - 2012)</p>
+              <p>Trabajé en proyectos GIS ambientales y aplicaciones para el monitoreo y gestión de recursos naturales.</p>
+              <p><strong>Analista Programador en Subsecretaría de Tierras para el Hábitat Social</strong> (Mayo 2005 - Febrero 2007)</p>
+              <p>Desarrollé aplicaciones para la gestión de hábitat social y administración de tierras.</p>
+            </div>
+
+            <div class="about-section">
+              <h3>Especialidades Técnicas</h3>
+              <div class="skills-list">
+                <div class="skill-tag">PostgreSQL + PostGIS</div>
+                <div class="skill-tag">GeoServer</div>
+                <div class="skill-tag">OpenLayers</div>
+                <div class="skill-tag">Leaflet</div>
+                <div class="skill-tag">JavaScript</div>
+                <div class="skill-tag">PHP</div>
+                <div class="skill-tag">Python</div>
+                <div class="skill-tag">HTML5/CSS3</div>
+                <div class="skill-tag">GeoExt</div>
+                <div class="skill-tag">jQuery</div>
+                <div class="skill-tag">GeoJSON</div>
+                <div class="skill-tag">WFS/WMS</div>
+              </div>
+            </div>
+
+            <div class="about-section">
+              <h3>Trayectoria y Experiencia</h3>
+              <p>Con más de 19 años de experiencia en el sector público argentino, me he especializado en el desarrollo de sistemas GIS para organismos gubernamentales de alto impacto.</p>
+              <p>Mi carrera abarca desde la gestión de tierras para hábitat social, pasando por sistemas de monitoreo ambiental, hasta la implementación de infraestructuras de datos estadísticos georreferenciados a nivel nacional.</p>
+              <p>Actualmente en INDEC, lidero el desarrollo de plataformas que democratizan el acceso a información estadística territorial, contribuyendo a la toma de decisiones basada en datos geográficos.</p>
+            </div>
+
+            <div class="about-section">
+              <h3>Enfoque Profesional</h3>
+              <p>Mi trabajo se centra en crear puentes entre la tecnología GIS y las necesidades del sector público. Creo firmemente en el software libre y la apertura de datos geográficos como herramientas de democratización del conocimiento.</p>
+              <p>Todos mis desarrollos priorizan la accesibilidad, usabilidad y la implementación de estándares abiertos, garantizando que la información geográfica sea accesible para ciudadanos, investigadores y tomadores de decisiones.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
     <footer>
@@ -326,5 +558,70 @@
       Esta obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Licencia Creative Commons Atribución 4.0 Internacional</a>.
     </footer>
   </div>
+
+  <script>
+    function toggleDetails(btn) {
+      const details = btn.nextElementSibling;
+      details.classList.toggle('expanded');
+      btn.textContent = details.classList.contains('expanded') 
+        ? 'Ocultar detalles' 
+        : 'Ver detalles técnicos';
+    }
+
+    function switchTab(event, tabId) {
+      // Ocultar todos los contenidos de pestañas
+      const tabContents = document.querySelectorAll('.tab-content');
+      tabContents.forEach(content => {
+        content.classList.remove('active');
+      });
+
+      // Desactivar todos los botones de pestañas
+      const tabButtons = document.querySelectorAll('.tab-button');
+      tabButtons.forEach(button => {
+        button.classList.remove('active');
+      });
+
+      // Mostrar el contenido seleccionado
+      document.getElementById(tabId).classList.add('active');
+      
+      // Activar el botón seleccionado
+      event.target.classList.add('active');
+    }
+
+    function toggleDescription(btn) {
+      const description = btn.parentElement;
+      const isExpanded = description.classList.contains('expanded');
+      
+      if (!isExpanded) {
+        const fullTexts = {
+          0: 'La plataforma SIG-WEB del Sistema Nacional de Monitoreo de Bosques de la República Argentina, que funciona en el entorno de la Secretaría de Ambiente y Desarrollo Sustentable de la Nación, se enmarca en el programa REDD+, el cual puede ser un instrumento de conservación de los bosques y de combate a la pobreza para los pueblos de los países en vías de desarrollo, o bien resultar un potencial sojuzgamiento de nuestros pueblos a los intereses de los países hegemónicos a nivel mundial.',
+          1: 'IDEHab es una Infraestructura de Datos Habitacionales Georreferenciados de la provincia de Buenos Aires, surge como una iniciativa para publicar información del déficit urbano-habitacional y de las distintas intervenciones públicas referidas a: procesos de regularización urbana y dominial, producción de loteos sociales, financiamiento de programas habitacionales, planes de integración socio-urbana y demás acciones en materia de mejoramiento habitacional.',
+          2: 'La Base de Asentamientos Humanos de la República Argentina (BAHRA) es producto del trabajo conjunto entre el Ministerio de Educación, a través del Programa Nacional Mapa Educativo, el Instituto Nacional de Estadística y Censos (INDEC) y el Instituto Geográfico Nacional (IGN).',
+          3: 'Este visor permite acceder a una selección de información correspondiente a datos geográficos, organización político administrativa y datos del Censo Nacional de Población, Hogares y Viviendas 2010.',
+          4: 'Este es un sistema interactivo que permite consultar los nombres, códigos y ubicación de las distintas unidades geográficas empleadas por el INDEC con fines estadísticos.'
+        };
+        
+        const cardIndex = Array.from(description.closest('.projects-grid').children).indexOf(description.closest('.project-card'));
+        const fullText = fullTexts[cardIndex];
+        
+        description.innerHTML = fullText + '<button class="expand-description" onclick="toggleDescription(this)">Ver menos</button>';
+        description.classList.add('expanded');
+      } else {
+        const shortTexts = {
+          0: 'Plataforma SIG-WEB del Sistema Nacional de Monitoreo de Bosques de Argentina, enmarcada en el programa REDD+ para conservación de bosques...',
+          1: 'Infraestructura de Datos Habitacionales Georreferenciados de Buenos Aires para publicar información del déficit urbano-habitacional...',
+          2: 'Base de Asentamientos Humanos de Argentina (BAHRA) - trabajo conjunto entre Ministerio de Educación, INDEC e IGN...',
+          3: 'Visor de información geográfica, organización político-administrativa y datos del Censo 2010...',
+          4: 'Sistema interactivo para consultar nombres, códigos y ubicación de unidades geográficas del INDEC...'
+        };
+        
+        const cardIndex = Array.from(description.closest('.projects-grid').children).indexOf(description.closest('.project-card'));
+        const shortText = shortTexts[cardIndex];
+        
+        description.innerHTML = shortText + '<button class="expand-description" onclick="toggleDescription(this)">Ver más</button>';
+        description.classList.remove('expanded');
+      }
+    }
+  </script>
 </body>
 </html>
