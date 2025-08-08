@@ -6,7 +6,7 @@
   <title>Manuel Retamozo - Desarrollador GIS | Geolibre</title>
   
   <!-- SEO Meta Tags -->
-  <meta name="description" content="Manuel Retamozo - Desarrollador GIS especializado en sistemas geográficos para el sector público argentino. 19+ años de experiencia en INDEC, Ministerio de Ambiente y proyectos GIS.">
+  <meta name="description" content="Manuel Retamozo - Desarrollador GIS especializado en sistemas geográficos para el sector público argentino. 19+ años de experiencia en INDEC, Ministerio de Educación y proyectos GIS.">
   <meta name="keywords" content="GIS, Desarrollador GIS, Manuel Retamozo, INDEC, PostgreSQL, PostGIS, OpenLayers, Leaflet, Argentina, SIG">
   <meta name="author" content="Manuel Retamozo">
   
@@ -627,6 +627,22 @@
         font-size: 0.75rem;
         padding: 0.25rem 0.6rem;
       }
+
+      .profile-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+      }
+      
+      .photo-placeholder {
+        width: 100px;
+        height: 100px;
+        font-size: 2.5rem;
+      }
+      
+      .profile-info {
+        min-width: unset;
+      }
     }
   </style>
 </head>
@@ -799,6 +815,20 @@
         <div id="about" class="tab-content" role="tabpanel" aria-labelledby="about-tab">
           <div class="loading-spinner" aria-hidden="true"></div>
           <div class="about-content">
+            <div class="about-section profile-section">
+              <div class="profile-content">
+                <div class="profile-photo">
+                  <div class="photo-placeholder">
+                    <span class="profile-icon">👨‍💻</span>
+                  </div>
+                </div>
+                <div class="profile-info">
+                  <h3>Manuel Retamozo</h3>
+                  <p class="profile-title">Desarrollador GIS Senior</p>
+                  <p class="profile-summary">Geoinquieto especialista en desarrollo geo full-stack y bases de datos espaciales. 19+ años especializándome en sistemas de información geográfica para el sector público argentino, con enfoque en democratización del acceso a datos territoriales.</p>
+                </div>
+              </div>
+            </div>
             <div class="about-section">
               <h3>Trayectoria Profesional</h3>
               <div class="timeline">
@@ -812,8 +842,8 @@
                 <div class="timeline-item">
                   <div class="timeline-content">
                     <div class="timeline-year">2007 - 2012</div>
-                    <div class="timeline-role">Programador GIS - Ministerio de Ambiente</div>
-                    <div class="timeline-description">Desarrollo de proyectos GIS ambientales y aplicaciones para el monitoreo y gestión de recursos naturales.</div>
+                    <div class="timeline-role">Programador GIS - Ministerio de Educación de la Nación</div>
+                    <div class="timeline-description">Desarrollo de sistemas GIS en el Programa Nacional Mapa Educativo, trabajando en la georreferenciación de establecimientos educativos y análisis territorial del sistema educativo argentino.</div>
                   </div>
                 </div>
                 <div class="timeline-item">
