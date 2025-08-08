@@ -3,8 +3,66 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manuel Retamozo - Geolibre</title>
+  <title>Manuel Retamozo - Desarrollador GIS | Geolibre</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Manuel Retamozo - Desarrollador GIS especializado en sistemas geográficos para el sector público argentino. 19+ años de experiencia en INDEC, Ministerio de Ambiente y proyectos GIS.">
+  <meta name="keywords" content="GIS, Desarrollador GIS, Manuel Retamozo, INDEC, PostgreSQL, PostGIS, OpenLayers, Leaflet, Argentina, SIG">
+  <meta name="author" content="Manuel Retamozo">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Manuel Retamozo - Desarrollador GIS">
+  <meta property="og:description" content="Desarrollador GIS especializado en sistemas geográficos para el sector público argentino. 19+ años de experiencia.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_AR">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Manuel Retamozo - Desarrollador GIS">
+  <meta name="twitter:description" content="Desarrollador GIS especializado en sistemas geográficos para el sector público argentino.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🗺️%3C/text%3E%3C/svg%3E">
+  
+  <!-- Fonts locales -->
   <style>
+    /* Inter Font Local */
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap;
+      src: url('./fonts/inter-300.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('./fonts/inter-400.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url('./fonts/inter-500.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url('./fonts/inter-600.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -14,7 +72,7 @@
     body {
       background: linear-gradient(135deg, #0f1419 0%, #1e2328 25%, #2a3441 50%, #364152 75%, #425063 100%);
       min-height: 100vh;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       line-height: 1.6;
       color: #e8eaed;
     }
@@ -254,10 +312,85 @@
       background: rgba(125, 211, 252, 0.1);
       border: 1px solid rgba(125, 211, 252, 0.2);
       border-radius: 4px;
-      padding: 0.3rem 0.6rem;
+      padding: 0.4rem 0.7rem;
       font-size: 0.85rem;
       color: #bae6fd;
       text-align: center;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.3s ease;
+    }
+
+    .skill-tag:hover {
+      background: rgba(125, 211, 252, 0.15);
+      border-color: rgba(125, 211, 252, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .skill-icon {
+      font-size: 1rem;
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      padding: 1rem 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 30px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, #7dd3fc, rgba(125, 211, 252, 0.3));
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 1rem 0 1rem 60px;
+      margin-bottom: 1.5rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 21px;
+      top: 1.5rem;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #7dd3fc;
+      border: 3px solid rgba(15, 20, 25, 1);
+      box-shadow: 0 0 10px rgba(125, 211, 252, 0.3);
+    }
+
+    .timeline-content {
+      background: rgba(51, 65, 85, 0.15);
+      border: 1px solid rgba(148, 163, 184, 0.15);
+      border-radius: 8px;
+      padding: 1rem;
+    }
+
+    .timeline-year {
+      color: #7dd3fc;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .timeline-role {
+      color: #bae6fd;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-description {
+      color: #d0dae3;
+      font-size: 0.9rem;
+      line-height: 1.5;
     }
 
     /* Elementos expandibles */
@@ -318,6 +451,151 @@
       border-color: rgba(125, 211, 252, 0.5);
     }
 
+    /* Botón volver arriba */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: rgba(125, 211, 252, 0.9);
+      color: #0f1419;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(125, 211, 252, 0.3);
+      opacity: 0;
+      transform: translateY(20px);
+      backdrop-filter: blur(10px);
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .back-to-top:hover {
+      background: #7dd3fc;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(125, 211, 252, 0.4);
+    }
+
+    /* Loading states */
+    .tab-content.loading {
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .loading-spinner {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(125, 211, 252, 0.3);
+      border-top: 3px solid #7dd3fc;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    .tab-content.loading .loading-spinner {
+      display: block;
+    }
+
+    /* Social links */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(71, 85, 105, 0.3);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      border-radius: 8px;
+      padding: 0.6rem 1rem;
+      text-decoration: none;
+      color: #bae6fd;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+    }
+
+    .social-link:hover {
+      background: rgba(71, 85, 105, 0.5);
+      border-color: rgba(125, 211, 252, 0.5);
+      transform: translateY(-2px);
+    }
+
+    /* Contact form */
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      color: #7dd3fc;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(51, 65, 85, 0.3);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      border-radius: 6px;
+      padding: 0.75rem;
+      color: #e8eaed;
+      font-family: inherit;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #7dd3fc;
+      box-shadow: 0 0 0 3px rgba(125, 211, 252, 0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .submit-btn {
+      background: linear-gradient(135deg, #7dd3fc, #a78bfa);
+      color: #0f1419;
+      border: none;
+      border-radius: 6px;
+      padding: 0.75rem 2rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(125, 211, 252, 0.3);
+    }
+
     @media (max-width: 768px) {
       .container {
         padding: 1rem;
@@ -368,12 +646,26 @@
 
     <main>
       <div class="tabs-container">
-        <nav class="tabs-nav">
-          <button class="tab-button active" onclick="switchTab(event, 'trabajos')">Trabajos Realizados</button>
-          <button class="tab-button" onclick="switchTab(event, 'about')">Sobre Manuel</button>
+        <nav class="tabs-nav" role="tablist" aria-label="Navegación principal">
+          <button class="tab-button active" 
+                  role="tab" 
+                  aria-controls="trabajos" 
+                  aria-selected="true" 
+                  onclick="switchTab(event, 'trabajos')">Trabajos Realizados</button>
+          <button class="tab-button" 
+                  role="tab" 
+                  aria-controls="about" 
+                  aria-selected="false" 
+                  onclick="switchTab(event, 'about')">Sobre Manuel</button>
+          <button class="tab-button" 
+                  role="tab" 
+                  aria-controls="contact" 
+                  aria-selected="false" 
+                  onclick="switchTab(event, 'contact')">Contacto</button>
         </nav>
 
-        <div id="trabajos" class="tab-content active">
+        <div id="trabajos" class="tab-content active" role="tabpanel" aria-labelledby="trabajos-tab">
+          <div class="loading-spinner" aria-hidden="true"></div>
           <h2 class="section-title">Algunos trabajos realizados</h2>
         
         <div class="projects-grid">
@@ -504,33 +796,51 @@
         </div>
         </div>
 
-        <div id="about" class="tab-content">
+        <div id="about" class="tab-content" role="tabpanel" aria-labelledby="about-tab">
+          <div class="loading-spinner" aria-hidden="true"></div>
           <div class="about-content">
             <div class="about-section">
-              <h3>Experiencia Profesional</h3>
-              <p><strong>Desarrollador GIS en INDEC</strong> (2012 - 2024)</p>
-              <p>12 años desarrollando y manteniendo aplicaciones GIS y sistemas de información geográfica para fines estadísticos en el Instituto Nacional de Estadística y Censos.</p>
-              <p><strong>Programador GIS en Ministerio de Ambiente y Desarrollo Sustentable</strong> (2007 - 2012)</p>
-              <p>Trabajé en proyectos GIS ambientales y aplicaciones para el monitoreo y gestión de recursos naturales.</p>
-              <p><strong>Analista Programador en Subsecretaría de Tierras para el Hábitat Social</strong> (Mayo 2005 - Febrero 2007)</p>
-              <p>Desarrollé aplicaciones para la gestión de hábitat social y administración de tierras.</p>
+              <h3>Trayectoria Profesional</h3>
+              <div class="timeline">
+                <div class="timeline-item">
+                  <div class="timeline-content">
+                    <div class="timeline-year">2012 - 2024</div>
+                    <div class="timeline-role">Desarrollador GIS - INDEC</div>
+                    <div class="timeline-description">12 años desarrollando y manteniendo aplicaciones GIS y sistemas de información geográfica para fines estadísticos en el Instituto Nacional de Estadística y Censos.</div>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-content">
+                    <div class="timeline-year">2007 - 2012</div>
+                    <div class="timeline-role">Programador GIS - Ministerio de Ambiente</div>
+                    <div class="timeline-description">Desarrollo de proyectos GIS ambientales y aplicaciones para el monitoreo y gestión de recursos naturales.</div>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-content">
+                    <div class="timeline-year">2005 - 2007</div>
+                    <div class="timeline-role">Analista Programador - Subsecretaría de Tierras</div>
+                    <div class="timeline-description">Desarrollo de aplicaciones para la gestión de hábitat social y administración de tierras.</div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div class="about-section">
               <h3>Especialidades Técnicas</h3>
               <div class="skills-list">
-                <div class="skill-tag">PostgreSQL + PostGIS</div>
-                <div class="skill-tag">GeoServer</div>
-                <div class="skill-tag">OpenLayers</div>
-                <div class="skill-tag">Leaflet</div>
-                <div class="skill-tag">JavaScript</div>
-                <div class="skill-tag">PHP</div>
-                <div class="skill-tag">Python</div>
-                <div class="skill-tag">HTML5/CSS3</div>
-                <div class="skill-tag">GeoExt</div>
-                <div class="skill-tag">jQuery</div>
-                <div class="skill-tag">GeoJSON</div>
-                <div class="skill-tag">WFS/WMS</div>
+                <div class="skill-tag"><span class="skill-icon">🐘</span>PostgreSQL + PostGIS</div>
+                <div class="skill-tag"><span class="skill-icon">🌍</span>GeoServer</div>
+                <div class="skill-tag"><span class="skill-icon">🗺️</span>OpenLayers</div>
+                <div class="skill-tag"><span class="skill-icon">🍃</span>Leaflet</div>
+                <div class="skill-tag"><span class="skill-icon">⚡</span>JavaScript</div>
+                <div class="skill-tag"><span class="skill-icon">🐘</span>PHP</div>
+                <div class="skill-tag"><span class="skill-icon">🐍</span>Python</div>
+                <div class="skill-tag"><span class="skill-icon">🎨</span>HTML5/CSS3</div>
+                <div class="skill-tag"><span class="skill-icon">🧩</span>GeoExt</div>
+                <div class="skill-tag"><span class="skill-icon">💫</span>jQuery</div>
+                <div class="skill-tag"><span class="skill-icon">📍</span>GeoJSON</div>
+                <div class="skill-tag"><span class="skill-icon">🔗</span>WFS/WMS</div>
               </div>
             </div>
 
