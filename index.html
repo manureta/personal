@@ -9,6 +9,8 @@
   <meta name="description" content="Manuel Retamozo - Desarrollador GIS especializado en sistemas geográficos para el sector público argentino. 19+ años de experiencia en INDEC, Ministerio de Educación y proyectos GIS.">
   <meta name="keywords" content="GIS, Desarrollador GIS, Manuel Retamozo, INDEC, PostgreSQL, PostGIS, OpenLayers, Leaflet, Argentina, SIG">
   <meta name="author" content="Manuel Retamozo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://geolibre.com.ar">
   
   <!-- Open Graph -->
   <meta property="og:title" content="Manuel Retamozo - Desarrollador GIS">
@@ -77,6 +79,25 @@
       color: #e8eaed;
     }
 
+    /* Skip link for accessibility */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 6px;
+      background: #7dd3fc;
+      color: #0f1419;
+      padding: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+      z-index: 1000;
+      transition: top 0.3s;
+    }
+
+    .skip-link:focus {
+      top: 6px;
+    }
+
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -85,52 +106,98 @@
 
     header {
       text-align: center;
-      margin-bottom: 1.5rem;
-      padding: 1.5rem 0;
+      margin-bottom: 2rem;
+      padding: 2rem 0;
+    }
+
+    .hero-content {
+      margin-bottom: 2.5rem;
+      animation: fadeInUp 0.8s ease-out;
     }
 
     h1 {
-      font-size: 3rem;
-      font-weight: 300;
-      margin-bottom: 0.5rem;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-      background: linear-gradient(45deg, #7dd3fc, #a78bfa);
+      font-size: 3.5rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+      background: linear-gradient(135deg, #7dd3fc 0%, #a78bfa 50%, #fbbf24 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      letter-spacing: -0.02em;
     }
 
     .subtitle {
-      font-size: 1.5rem;
-      color: #94a3b8;
-      font-weight: 300;
-      margin-bottom: 2rem;
+      font-size: 1.8rem;
+      color: #7dd3fc;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 4px rgba(125, 211, 252, 0.3);
+    }
+
+    .tagline {
+      font-size: 1.1rem;
+      color: #bae6fd;
+      font-weight: 400;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.5;
     }
 
     .nav-links {
       display: flex;
       justify-content: center;
-      gap: 1rem;
+      gap: 1.5rem;
       flex-wrap: wrap;
       margin-bottom: 1.5rem;
+      animation: fadeInUp 0.8s ease-out 0.2s both;
     }
 
     .nav-link {
-      background: rgba(71, 85, 105, 0.2);
-      border: 1px solid rgba(148, 163, 184, 0.2);
-      border-radius: 8px;
-      padding: 0.75rem 1.5rem;
+      background: rgba(30, 35, 40, 0.6);
+      border: 1px solid rgba(125, 211, 252, 0.2);
+      border-radius: 12px;
+      padding: 1rem 1.75rem;
       text-decoration: none;
       color: #e2e8f0;
-      transition: all 0.3s ease;
-      backdrop-filter: blur(10px);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      backdrop-filter: blur(15px);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-link::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(125, 211, 252, 0.1), transparent);
+      transition: left 0.5s;
+    }
+
+    .nav-link:hover::before {
+      left: 100%;
     }
 
     .nav-link:hover {
-      background: rgba(71, 85, 105, 0.4);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      border-color: rgba(125, 211, 252, 0.4);
+      background: rgba(125, 211, 252, 0.15);
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 8px 25px rgba(125, 211, 252, 0.2);
+      border-color: rgba(125, 211, 252, 0.6);
+      color: #ffffff;
+    }
+
+    .nav-icon {
+      font-size: 1.2em;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
     }
 
     .section-title {
@@ -229,35 +296,70 @@
     /* Sistema de pestañas */
     .tabs-container {
       margin-bottom: 2rem;
+      animation: fadeInUp 0.8s ease-out 0.4s both;
     }
 
     .tabs-nav {
       display: flex;
       justify-content: center;
-      gap: 0.5rem;
-      margin-bottom: 1.5rem;
-      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+      gap: 1rem;
+      margin-bottom: 2rem;
+      padding: 0.5rem;
+      background: rgba(15, 20, 25, 0.3);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(148, 163, 184, 0.1);
     }
 
     .tab-button {
-      background: none;
-      border: none;
-      border-bottom: 2px solid transparent;
-      padding: 0.75rem 1.5rem;
+      background: rgba(30, 35, 40, 0.4);
+      border: 1px solid rgba(148, 163, 184, 0.15);
+      border-radius: 10px;
+      padding: 1rem 2rem;
       font-size: 1rem;
       color: #94a3b8;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
+      font-weight: 500;
+      backdrop-filter: blur(10px);
+      letter-spacing: 0.01em;
+    }
+
+    .tab-button::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #7dd3fc, #a78bfa);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+      border-radius: 1px;
     }
 
     .tab-button.active {
+      background: rgba(125, 211, 252, 0.1);
       color: #7dd3fc;
-      border-bottom-color: #7dd3fc;
+      border-color: rgba(125, 211, 252, 0.3);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 15px rgba(125, 211, 252, 0.15);
+    }
+
+    .tab-button.active::before {
+      width: 80%;
     }
 
     .tab-button:hover {
       color: #bae6fd;
+      background: rgba(125, 211, 252, 0.08);
+      border-color: rgba(125, 211, 252, 0.25);
+      transform: translateY(-1px);
+    }
+
+    .tab-button:hover::before {
+      width: 60%;
     }
 
     .tab-content {
@@ -272,6 +374,17 @@
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { 
+        opacity: 0; 
+        transform: translateY(30px); 
+      }
+      to { 
+        opacity: 1; 
+        transform: translateY(0); 
+      }
     }
 
     .about-content {
@@ -596,6 +709,77 @@
       box-shadow: 0 8px 25px rgba(125, 211, 252, 0.3);
     }
 
+    .submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .submit-btn.loading {
+      position: relative;
+      color: transparent;
+    }
+
+    .submit-btn.loading::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 20px;
+      height: 20px;
+      border: 2px solid rgba(15, 20, 25, 0.3);
+      border-top: 2px solid #0f1419;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    /* Form validation styles */
+    .form-group.error input,
+    .form-group.error textarea {
+      border-color: #ef4444;
+      background: rgba(239, 68, 68, 0.05);
+    }
+
+    .error-message {
+      color: #ef4444;
+      font-size: 0.8rem;
+      margin-top: 0.25rem;
+      display: block;
+      opacity: 0;
+      transform: translateY(-5px);
+      transition: all 0.3s ease;
+    }
+
+    .form-group.error .error-message {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .success-message {
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.2);
+      color: #22c55e;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+    }
+
+    .success-message.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     /* Profile section */
     .profile-section {
       margin-bottom: 2rem;
@@ -662,13 +846,39 @@
       }
       
       h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
+      }
+      
+      .subtitle {
+        font-size: 1.4rem;
+      }
+      
+      .tagline {
+        font-size: 1rem;
+        padding: 0 1rem;
       }
       
       .nav-links {
         flex-direction: column;
         align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+      }
+      
+      .nav-link {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+      }
+      
+      .tabs-nav {
         gap: 0.5rem;
+        padding: 0.25rem;
+      }
+      
+      .tab-button {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.9rem;
       }
       
       .project-details {
@@ -710,17 +920,31 @@
 <body>
   <div class="container">
     <header>
-      <h1>Manuel Retamozo</h1>
-      <div class="subtitle">Geolibre</div>
+      <div class="hero-content">
+        <h1>Manuel Retamozo</h1>
+        <div class="subtitle">Geolibre</div>
+        <div class="tagline">Desarrollador GIS Senior | 19+ años de experiencia en el sector público</div>
+      </div>
       
       <nav class="nav-links">
-        <a href="mapa-chaja.html" class="nav-link">Mapa Chaja OpenLayers 9 y OSM</a>
-        <a href="leaflet-chaja.html" class="nav-link">Mapa Chaja Leaflet</a>
-        <a href="http://overpass-turbo.eu/s/qLN" class="nav-link" target="_blank">Barrios de Chaja</a>
+        <a href="mapa-chaja.html" class="nav-link">
+          <span class="nav-icon">🗺️</span>
+          Mapa Chaja OpenLayers 9
+        </a>
+        <a href="leaflet-chaja.html" class="nav-link">
+          <span class="nav-icon">🍃</span>
+          Mapa Chaja Leaflet
+        </a>
+        <a href="https://overpass-turbo.eu/s/qLN" class="nav-link" target="_blank" rel="noopener noreferrer">
+          <span class="nav-icon">🌍</span>
+          Barrios de Chaja
+        </a>
       </nav>
     </header>
 
-    <main>
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    
+    <main id="main-content">
       <div class="tabs-container">
         <nav class="tabs-nav" role="tablist" aria-label="Navegación principal">
           <button class="tab-button active" 
@@ -747,13 +971,13 @@
         <div class="projects-grid">
           <article class="project-card">
             <h3 class="project-title">
-              <a href="http://snmb.ambiente.gob.ar/" target="_blank">Sistema Nacional de Monitoreo de Bosques</a>
+              <a href="https://snmb.ambiente.gob.ar/" target="_blank" rel="noopener noreferrer">Sistema Nacional de Monitoreo de Bosques</a>
             </h3>
             <p class="project-description">
               Plataforma SIG-WEB del Sistema Nacional de Monitoreo de Bosques de Argentina, enmarcada en el programa REDD+ para conservación de bosques...
-              <button class="expand-description" onclick="toggleDescription(this)">Ver más</button>
+              <button class="expand-description" onclick="toggleDescription(this)" aria-expanded="false" aria-label="Expandir descripción completa">Ver más</button>
             </p>
-            <button class="expand-btn" onclick="toggleDetails(this)">Ver detalles técnicos</button>
+            <button class="expand-btn" onclick="toggleDetails(this)" aria-expanded="false" aria-label="Ver detalles técnicos del proyecto">Ver detalles técnicos</button>
             <div class="project-details">
               <div class="detail-section">
                 <h4>Tareas</h4>
@@ -768,13 +992,13 @@
 
           <article class="project-card">
             <h3 class="project-title">
-              <a href="http://190.188.234.6/mapa/" target="_blank">IDEHab - Infraestructura de Datos Habitacionales Georreferenciados</a>
+              <a href="https://190.188.234.6/mapa/" target="_blank" rel="noopener noreferrer">IDEHab - Infraestructura de Datos Habitacionales Georreferenciados</a>
             </h3>
             <p class="project-description">
               Infraestructura de Datos Habitacionales Georreferenciados de Buenos Aires para publicar información del déficit urbano-habitacional...
-              <button class="expand-description" onclick="toggleDescription(this)">Ver más</button>
+              <button class="expand-description" onclick="toggleDescription(this)" aria-expanded="false" aria-label="Expandir descripción completa">Ver más</button>
             </p>
-            <button class="expand-btn" onclick="toggleDetails(this)">Ver detalles técnicos</button>
+            <button class="expand-btn" onclick="toggleDetails(this)" aria-expanded="false" aria-label="Ver detalles técnicos del proyecto">Ver detalles técnicos</button>
             <div class="project-details">
               <div class="detail-section">
                 <h4>Tareas</h4>
@@ -789,13 +1013,13 @@
 
           <article class="project-card">
             <h3 class="project-title">
-              <a href="http://www.bahra.gob.ar/" target="_blank">Base de Asentamientos Humanos de la República Argentina (BAHRA)</a>
+              <a href="https://www.bahra.gob.ar/" target="_blank" rel="noopener noreferrer">Base de Asentamientos Humanos de la República Argentina (BAHRA)</a>
             </h3>
             <p class="project-description">
               Base de Asentamientos Humanos de Argentina (BAHRA) - trabajo conjunto entre Ministerio de Educación, INDEC e IGN...
-              <button class="expand-description" onclick="toggleDescription(this)">Ver más</button>
+              <button class="expand-description" onclick="toggleDescription(this)" aria-expanded="false" aria-label="Expandir descripción completa">Ver más</button>
             </p>
-            <button class="expand-btn" onclick="toggleDetails(this)">Ver detalles técnicos</button>
+            <button class="expand-btn" onclick="toggleDetails(this)" aria-expanded="false" aria-label="Ver detalles técnicos del proyecto">Ver detalles técnicos</button>
             <div class="project-details">
               <div class="detail-section">
                 <h4>Tareas</h4>
@@ -810,13 +1034,13 @@
 
           <article class="project-card">
             <h3 class="project-title">
-              <a href="http://www.indec.gob.ar/gis/index_sig.html" target="_blank">Visor de Información Geográfica - INDEC</a>
+              <a href="https://www.indec.gob.ar/gis/index_sig.html" target="_blank" rel="noopener noreferrer">Visor de Información Geográfica - INDEC</a>
             </h3>
             <p class="project-description">
               Visor de información geográfica, organización político-administrativa y datos del Censo 2010...
-              <button class="expand-description" onclick="toggleDescription(this)">Ver más</button>
+              <button class="expand-description" onclick="toggleDescription(this)" aria-expanded="false" aria-label="Expandir descripción completa">Ver más</button>
             </p>
-            <button class="expand-btn" onclick="toggleDetails(this)">Ver detalles técnicos</button>
+            <button class="expand-btn" onclick="toggleDetails(this)" aria-expanded="false" aria-label="Ver detalles técnicos del proyecto">Ver detalles técnicos</button>
             <div class="project-details">
               <div class="detail-section">
                 <h4>Tareas</h4>
@@ -832,13 +1056,13 @@
           <article class="project-card">
             <h3 class="project-title">
               <a href="https://geoservicios.indec.gob.ar/codgeo/index.php?pagina=inicio" target="_blank">Codgeo - Unidades Geoestadísticas - INDEC</a>
-              <a href="http://www.indec.gob.ar/ayuda_visor_territorio.pdf" target="_blank" style="font-size: 0.8em; margin-left: 0.5rem;">(Tutorial)</a>
+              <a href="https://www.indec.gob.ar/ayuda_visor_territorio.pdf" target="_blank" rel="noopener noreferrer" style="font-size: 0.8em; margin-left: 0.5rem;">(Tutorial)</a>
             </h3>
             <p class="project-description">
               Sistema interactivo para consultar nombres, códigos y ubicación de unidades geográficas del INDEC...
-              <button class="expand-description" onclick="toggleDescription(this)">Ver más</button>
+              <button class="expand-description" onclick="toggleDescription(this)" aria-expanded="false" aria-label="Expandir descripción completa">Ver más</button>
             </p>
-            <button class="expand-btn" onclick="toggleDetails(this)">Ver detalles técnicos</button>
+            <button class="expand-btn" onclick="toggleDetails(this)" aria-expanded="false" aria-label="Ver detalles técnicos del proyecto">Ver detalles técnicos</button>
             <div class="project-details">
               <div class="detail-section">
                 <h4>Tareas</h4>
@@ -946,16 +1170,60 @@
               <p>Mi trabajo se centra en crear puentes entre la tecnología GIS y las necesidades del sector público. Creo firmemente en el software libre y la apertura de datos geográficos como herramientas de democratización del conocimiento.</p>
               <p>Todos mis desarrollos priorizan la accesibilidad, usabilidad y la implementación de estándares abiertos, garantizando que la información geográfica sea accesible para ciudadanos, investigadores y tomadores de decisiones.</p>
             </div>
+
+            <div class="about-section">
+              <h3>Contacto y Redes</h3>
+              <div class="social-links">
+                <a href="https://www.linkedin.com/in/mretamozo" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Perfil de LinkedIn de Manuel Retamozo">
+                  <span class="social-icon">💼</span>
+                  LinkedIn
+                </a>
+                <a href="https://github.com/manureta" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Perfil de GitHub de Manuel Retamozo">
+                  <span class="social-icon">👨‍💻</span>
+                  GitHub
+                </a>
+                <a href="mailto:manuel.retamozo@gmail.com" class="social-link" aria-label="Enviar email a Manuel Retamozo">
+                  <span class="social-icon">✉️</span>
+                  Email
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pestaña Contacto -->
+        <div id="contact" class="tab-content" role="tabpanel" aria-labelledby="contact-tab">
+          <div class="about-content">
+            <h2 class="section-title">Contacto</h2>
+            
+            <form class="contact-form" onsubmit="handleFormSubmit(event)">
+              <div class="form-group">
+                <label for="name">Nombre *</label>
+                <input type="text" id="name" name="name" class="form-input" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" class="form-input" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="message">Mensaje *</label>
+                <textarea id="message" name="message" rows="6" class="form-input" required placeholder="Cuéntame sobre tu proyecto GIS..."></textarea>
+              </div>
+              
+              <button type="submit" class="submit-btn">Enviar Mensaje</button>
+            </form>
           </div>
         </div>
       </div>
     </main>
 
     <footer>
-      <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">
+      <a rel="license" href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">
         <img alt="Licencia Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
       </a><br />
-      Esta obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Licencia Creative Commons Atribución 4.0 Internacional</a>.
+      Esta obra está bajo una <a rel="license" href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">Licencia Creative Commons Atribución 4.0 Internacional</a>.
     </footer>
   </div>
 
@@ -1021,6 +1289,122 @@
         description.innerHTML = shortText + '<button class="expand-description" onclick="toggleDescription(this)">Ver más</button>';
         description.classList.remove('expanded');
       }
+    }
+
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      
+      // Get form elements
+      const form = event.target;
+      const submitBtn = form.querySelector('.submit-btn');
+      const nameInput = form.querySelector('#name');
+      const emailInput = form.querySelector('#email');
+      const messageInput = form.querySelector('#message');
+      
+      // Clear previous errors
+      clearFormErrors(form);
+      
+      // Validate form
+      let hasErrors = false;
+      
+      // Validate name
+      if (!nameInput.value.trim()) {
+        showFieldError(nameInput, 'El nombre es obligatorio');
+        hasErrors = true;
+      }
+      
+      // Validate email
+      if (!emailInput.value.trim()) {
+        showFieldError(emailInput, 'El email es obligatorio');
+        hasErrors = true;
+      } else if (!isValidEmail(emailInput.value)) {
+        showFieldError(emailInput, 'Ingresa un email válido');
+        hasErrors = true;
+      }
+      
+      // Validate message
+      if (!messageInput.value.trim()) {
+        showFieldError(messageInput, 'El mensaje es obligatorio');
+        hasErrors = true;
+      } else if (messageInput.value.trim().length < 10) {
+        showFieldError(messageInput, 'El mensaje debe tener al menos 10 caracteres');
+        hasErrors = true;
+      }
+      
+      if (hasErrors) {
+        return;
+      }
+      
+      // Show loading state
+      submitBtn.disabled = true;
+      submitBtn.classList.add('loading');
+      
+      // Simulate form submission
+      setTimeout(() => {
+        // Hide loading state
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('loading');
+        
+        // Show success message
+        showSuccessMessage(form);
+        
+        // Reset form
+        form.reset();
+      }, 2000);
+    }
+    
+    function clearFormErrors(form) {
+      const errorGroups = form.querySelectorAll('.form-group.error');
+      errorGroups.forEach(group => {
+        group.classList.remove('error');
+      });
+      
+      // Remove existing success message
+      const existingSuccess = form.querySelector('.success-message');
+      if (existingSuccess) {
+        existingSuccess.remove();
+      }
+    }
+    
+    function showFieldError(input, message) {
+      const formGroup = input.closest('.form-group');
+      formGroup.classList.add('error');
+      
+      let errorMsg = formGroup.querySelector('.error-message');
+      if (!errorMsg) {
+        errorMsg = document.createElement('span');
+        errorMsg.className = 'error-message';
+        formGroup.appendChild(errorMsg);
+      }
+      errorMsg.textContent = message;
+    }
+    
+    function showSuccessMessage(form) {
+      const successMsg = document.createElement('div');
+      successMsg.className = 'success-message';
+      successMsg.innerHTML = '✅ Mensaje enviado correctamente. Te contactaré pronto.';
+      
+      form.insertBefore(successMsg, form.firstChild);
+      
+      // Trigger animation
+      setTimeout(() => {
+        successMsg.classList.add('show');
+      }, 100);
+      
+      // Remove message after 5 seconds
+      setTimeout(() => {
+        successMsg.classList.remove('show');
+        setTimeout(() => {
+          if (successMsg.parentNode) {
+            successMsg.remove();
+          }
+        }, 300);
+      }, 5000);
+    }
+    
+    function isValidEmail(email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
     }
   </script>
 </body>
