@@ -201,6 +201,132 @@
       filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
     }
 
+    .quick-nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 1.5rem 0;
+      padding: 0.75rem;
+      background: rgba(15, 20, 25, 0.4);
+      border-radius: 25px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(125, 211, 252, 0.1);
+    }
+
+    .quick-nav-link {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 15px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .quick-nav-link:hover {
+      color: #7dd3fc;
+      background: rgba(125, 211, 252, 0.1);
+      transform: translateY(-1px);
+    }
+
+    .quick-nav-link:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #7dd3fc, #a78bfa);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    .quick-nav-link:hover:before {
+      width: 80%;
+    }
+
+    /* Tab navigation styles */
+    .tab-navigation {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin: 1.5rem 0;
+      padding: 0.5rem;
+      background: rgba(15, 20, 25, 0.4);
+      border-radius: 25px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(125, 211, 252, 0.1);
+    }
+
+    .tab-button {
+      background: transparent;
+      border: 1px solid rgba(125, 211, 252, 0.2);
+      border-radius: 15px;
+      padding: 0.75rem 1.5rem;
+      color: #94a3b8;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+      font-weight: 500;
+      font-family: inherit;
+    }
+
+    .tab-button:hover {
+      color: #7dd3fc;
+      background: rgba(125, 211, 252, 0.1);
+      transform: translateY(-1px);
+      border-color: rgba(125, 211, 252, 0.4);
+    }
+
+    .tab-button.active {
+      background: rgba(125, 211, 252, 0.15);
+      color: #bae6fd;
+      border-color: rgba(125, 211, 252, 0.6);
+      box-shadow: 0 4px 15px rgba(125, 211, 252, 0.2);
+    }
+
+    /* Tab content styles */
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.3s ease-in;
+    }
+
+    .examples-section {
+      margin-bottom: 1rem;
+    }
+
+    .examples-title {
+      font-size: 1.2rem;
+      color: #bae6fd;
+      font-weight: 500;
+      text-align: center;
+      margin-bottom: 1rem;
+      opacity: 0.9;
+    }
+
+    .nav-icon-img {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+      filter: brightness(1.2) drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover .nav-icon-img {
+      filter: brightness(1.4) drop-shadow(0 2px 6px rgba(125, 211, 252, 0.4));
+      transform: scale(1.1);
+    }
+
+    .leaflet-logo {
+      width: 48px !important;
+      height: auto !important;
+    }
+
     .section-title {
       font-size: 2rem;
       text-align: center;
@@ -294,82 +420,86 @@
       color: #7dd3fc;
     }
 
-    /* Sistema de pestañas */
-    .tabs-container {
-      margin-bottom: 2rem;
+    /* Secciones de contenido */
+    .content-section {
+      margin-bottom: 4rem;
       animation: fadeInUp 0.8s ease-out 0.4s both;
     }
 
-    .tabs-nav {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-bottom: 2rem;
-      padding: 0.5rem;
-      background: rgba(15, 20, 25, 0.3);
-      border-radius: 15px;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(148, 163, 184, 0.1);
-    }
-
-    .tab-button {
-      background: rgba(30, 35, 40, 0.4);
-      border: 1px solid rgba(148, 163, 184, 0.15);
-      border-radius: 10px;
-      padding: 0.75rem 1.5rem;
-      font-size: 0.9rem;
-      color: #94a3b8;
-      cursor: pointer;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      font-weight: 500;
-      backdrop-filter: blur(10px);
-      letter-spacing: 0.01em;
-    }
-
-    .tab-button::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(90deg, #7dd3fc, #a78bfa);
-      transition: all 0.3s ease;
-      transform: translateX(-50%);
-      border-radius: 1px;
-    }
-
-    .tab-button.active {
-      background: rgba(125, 211, 252, 0.1);
+    .section-subtitle {
+      font-size: 1.5rem;
       color: #7dd3fc;
+      text-align: center;
+      margin: 3rem 0 2rem 0;
+      font-weight: 500;
+    }
+
+    .examples-section-in-work {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    .examples-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .example-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.5rem;
+      background: rgba(51, 65, 85, 0.15);
+      border: 1px solid rgba(148, 163, 184, 0.15);
+      border-radius: 12px;
+      text-decoration: none;
+      color: #e2e8f0;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .example-card:hover {
+      background: rgba(125, 211, 252, 0.1);
       border-color: rgba(125, 211, 252, 0.3);
-      transform: translateY(-1px);
-      box-shadow: 0 4px 15px rgba(125, 211, 252, 0.15);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(125, 211, 252, 0.15);
     }
 
-    .tab-button.active::before {
-      width: 80%;
+    .example-icon {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      flex-shrink: 0;
+      margin-top: 0.25rem;
+      filter: brightness(1.1) drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+      transition: all 0.3s ease;
     }
 
-    .tab-button:hover {
-      color: #bae6fd;
-      background: rgba(125, 211, 252, 0.08);
-      border-color: rgba(125, 211, 252, 0.25);
-      transform: translateY(-1px);
+    .example-card:hover .example-icon {
+      filter: brightness(1.3) drop-shadow(0 4px 8px rgba(125, 211, 252, 0.3));
+      transform: scale(1.05);
     }
 
-    .tab-button:hover::before {
-      width: 60%;
+    .leaflet-example {
+      width: 60px !important;
+      height: auto !important;
     }
 
-    .tab-content {
-      display: none;
-      animation: fadeIn 0.3s ease-in-out;
+    .example-info h4 {
+      font-size: 1.1rem;
+      color: #7dd3fc;
+      margin: 0 0 0.5rem 0;
+      font-weight: 600;
     }
 
-    .tab-content.active {
-      display: block;
+    .example-info p {
+      font-size: 0.9rem;
+      color: #d0dae3;
+      margin: 0;
+      line-height: 1.4;
     }
 
     @keyframes fadeIn {
@@ -687,6 +817,52 @@
       margin-top: 0.25rem;
     }
 
+    .resource-icon-img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      flex-shrink: 0;
+      margin-top: 0.25rem;
+      filter: brightness(1.1) drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+      transition: all 0.3s ease;
+    }
+
+    .resource-link:hover .resource-icon-img {
+      filter: brightness(1.3) drop-shadow(0 4px 8px rgba(125, 211, 252, 0.3));
+      transform: scale(1.05);
+    }
+
+    .leaflet-resource {
+      width: 80px !important;
+      height: auto !important;
+    }
+
+    .subsection-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem 0;
+      padding: 0.5rem;
+      background: rgba(51, 65, 85, 0.1);
+      border-radius: 15px;
+      border: 1px solid rgba(148, 163, 184, 0.1);
+    }
+
+    .subsection-link {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 0.8rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .subsection-link:hover {
+      color: #7dd3fc;
+      background: rgba(125, 211, 252, 0.1);
+    }
+
     .resource-info h4 {
       font-size: 1.1rem;
       color: #7dd3fc;
@@ -917,18 +1093,45 @@
       
       .nav-link {
         width: 100%;
-        max-width: 250px;
+        max-width: 280px;
         justify-content: center;
       }
       
-      .tabs-nav {
-        gap: 0.5rem;
-        padding: 0.25rem;
+      .examples-title {
+        font-size: 1.1rem;
       }
       
-      .tab-button {
-        padding: 0.6rem 1rem;
+      .quick-nav {
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      
+      .quick-nav-link {
         font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+      }
+      
+      .subsection-nav {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      
+      .subsection-link {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.6rem;
+      }
+      
+      .examples-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
+      .example-card {
+        padding: 1.25rem;
+      }
+      
+      .section-subtitle {
+        font-size: 1.3rem;
       }
       
       .project-details {
@@ -971,57 +1174,45 @@
   <div class="container">
     <header>
       <div class="hero-content">
-        <h1>Manuel Retamozo</h1>
+        <h1><a href="#trabajos" onclick="switchTab(event, 'trabajos')" style="text-decoration: none; color: inherit;">Manuel Retamozo</a></h1>
         <div class="subtitle">Geolibre</div>
         <div class="tagline">Desarrollador GIS Senior | 19+ años de experiencia en el sector público</div>
       </div>
       
-      <nav class="nav-links">
-        <a href="mapa-chaja.html" class="nav-link">
-          <span class="nav-icon">🗂️</span>
-          Mapa Chaja OpenLayers 9
-        </a>
-        <a href="leaflet-chaja.html" class="nav-link">
-          <span class="nav-icon">🍃</span>
-          Mapa Chaja Leaflet
-        </a>
-        <a href="https://overpass-turbo.eu/s/qLN" class="nav-link" target="_blank" rel="noopener noreferrer">
-          <span class="nav-icon">🔍</span>
-          Barrios de Chaja (Overpass Turbo)
-        </a>
-      </nav>
+      <div class="tab-navigation">
+        <button class="tab-button active" onclick="switchTab(event, 'trabajos')" id="trabajos-tab">Trabajos</button>
+        <button class="tab-button" onclick="switchTab(event, 'about')" id="about-tab">Sobre mí</button>
+        <button class="tab-button" onclick="switchTab(event, 'recursos')" id="recursos-tab">Recursos</button>
+        <button class="tab-button" onclick="switchTab(event, 'contact')" id="contact-tab">Contacto</button>
+      </div>
+
     </header>
 
     <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
     
     <main id="main-content">
-      <div class="tabs-container">
-        <nav class="tabs-nav" role="tablist" aria-label="Navegación principal">
-          <button class="tab-button active" 
-                  role="tab" 
-                  aria-controls="trabajos" 
-                  aria-selected="true" 
-                  onclick="switchTab(event, 'trabajos')">Trabajos Realizados</button>
-          <button class="tab-button" 
-                  role="tab" 
-                  aria-controls="about" 
-                  aria-selected="false" 
-                  onclick="switchTab(event, 'about')">Sobre Manuel</button>
-          <button class="tab-button" 
-                  role="tab" 
-                  aria-controls="recursos" 
-                  aria-selected="false" 
-                  onclick="switchTab(event, 'recursos')">Recursos</button>
-          <button class="tab-button" 
-                  role="tab" 
-                  aria-controls="contact" 
-                  aria-selected="false" 
-                  onclick="switchTab(event, 'contact')">Contacto</button>
-        </nav>
 
-        <div id="trabajos" class="tab-content active" role="tabpanel" aria-labelledby="trabajos-tab">
-          <div class="loading-spinner" aria-hidden="true"></div>
-          <h2 class="section-title">Algunos trabajos realizados</h2>
+      <div class="tab-content active" id="trabajos" role="tabpanel" aria-labelledby="trabajos-tab">
+          <h2 id="trabajos-section" class="section-title">Algunos trabajos realizados</h2>
+          
+          <!-- Sección de Ejemplos de Mapas -->
+          <div class="examples-section">
+            <h3 class="examples-title">Ejemplos de Mapas Interactivos</h3>
+            <div class="nav-links">
+              <a href="mapa-chaja.html" class="nav-link" target="_blank" rel="noopener noreferrer">
+                <img src="images/logo-dark-openlayers.svg" alt="OpenLayers 9" class="nav-icon-img">
+                <span>OpenLayers 9</span>
+              </a>
+              <a href="leaflet-chaja.html" class="nav-link" target="_blank" rel="noopener noreferrer">
+                <img src="images/logo.leafleatjs.png" alt="Leaflet" class="nav-icon-img leaflet-logo">
+                <span>Leaflet</span>
+              </a>
+              <a href="http://overpass-turbo.eu/s/qLN" class="nav-link" target="_blank" rel="noopener noreferrer">
+                <img src="images/overpass.svg" alt="Overpass Turbo" class="nav-icon-img">
+                <span>Overpass Turbo</span>
+              </a>
+            </div>
+          </div>
         
         <div class="projects-grid">
           <article class="project-card">
@@ -1149,12 +1340,11 @@
             </div>
           </article>
         </div>
-        </div>
+      </div>
 
-        <div id="about" class="tab-content" role="tabpanel" aria-labelledby="about-tab">
-          <div class="loading-spinner" aria-hidden="true"></div>
+      <div class="tab-content" id="about" role="tabpanel" aria-labelledby="about-tab">
           <div class="about-content">
-            <div class="about-section profile-section">
+            <div id="perfil" class="about-section profile-section">
               <div class="profile-content">
                 <div class="profile-photo">
                   <div class="photo-placeholder">
@@ -1167,6 +1357,14 @@
                   <p class="profile-summary">Geoinquieto especialista en desarrollo geo full-stack y bases de datos espaciales. 19+ años especializándome en sistemas de información geográfica para el sector público argentino, con enfoque en democratización del acceso a datos territoriales.</p>
                 </div>
               </div>
+            </div>
+            
+            <div class="subsection-nav">
+              <a href="#perfil" class="subsection-link">Perfil</a>
+              <a href="#especialidades" class="subsection-link">Especialidades</a>
+              <a href="#trayectoria" class="subsection-link">Trayectoria</a>
+              <a href="#enfoque" class="subsection-link">Enfoque</a>
+              <a href="#redes" class="subsection-link">Redes</a>
             </div>
             <div class="about-section">
               <h3>Trayectoria Profesional</h3>
@@ -1196,7 +1394,7 @@
             </div>
 
             <div class="about-section">
-              <h3>Especialidades Técnicas</h3>
+              <h3 id="especialidades">Especialidades Técnicas</h3>
               <div class="skills-list">
                 <div class="skill-tag"><span class="skill-icon">🐘</span>PostgreSQL + PostGIS</div>
                 <div class="skill-tag"><span class="skill-icon">🌍</span>GeoServer</div>
@@ -1214,21 +1412,21 @@
             </div>
 
             <div class="about-section">
-              <h3>Trayectoria y Experiencia</h3>
+              <h3 id="trayectoria">Trayectoria y Experiencia</h3>
               <p>Con más de 19 años de experiencia en el sector público argentino, me he especializado en el desarrollo de sistemas GIS para organismos gubernamentales de alto impacto.</p>
               <p>Mi carrera abarca desde la gestión de tierras para hábitat social, pasando por sistemas de monitoreo ambiental, hasta la implementación de infraestructuras de datos estadísticos georreferenciados a nivel nacional.</p>
               <p>Actualmente en INDEC, lidero el desarrollo de plataformas que democratizan el acceso a información estadística territorial, contribuyendo a la toma de decisiones basada en datos geográficos.</p>
             </div>
 
             <div class="about-section">
-              <h3>Enfoque Profesional</h3>
+              <h3 id="enfoque">Enfoque Profesional</h3>
               <p>Mi trabajo se centra en crear puentes entre la tecnología GIS y las necesidades del sector público. Creo firmemente en el software libre y la apertura de datos geográficos como herramientas de democratización del conocimiento.</p>
               <p>Todos mis desarrollos priorizan la accesibilidad, usabilidad y la implementación de estándares abiertos, garantizando que la información geográfica sea accesible para ciudadanos, investigadores y tomadores de decisiones.</p>
             </div>
 
 
             <div class="about-section">
-              <h3>Contacto y Redes</h3>
+              <h3 id="redes">Contacto y Redes</h3>
               <div class="social-links">
                 <a href="https://www.linkedin.com/in/mretamozo" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Perfil de LinkedIn de Manuel Retamozo">
                   <span class="social-icon">💼</span>
@@ -1245,30 +1443,30 @@
               </div>
             </div>
           </div>
-        </div>
+      </div>
 
-        <!-- Pestaña Recursos -->
-        <div id="recursos" class="tab-content" role="tabpanel" aria-labelledby="recursos-tab">
+      <!-- Sección Recursos -->
+      <div class="tab-content" id="recursos" role="tabpanel" aria-labelledby="recursos-tab">
           <div class="about-content">
-            <h2 class="section-title">Recursos y Herramientas</h2>
+            <h2 id="recursos-section" class="section-title">Recursos y Herramientas</h2>
             
             <div class="resources-grid">
               <a href="https://openlayers.org/" target="_blank" rel="noopener noreferrer" class="resource-link" aria-label="Sitio oficial de OpenLayers">
-                <span class="resource-icon">🗂️</span>
+                <img src="images/logo-dark-openlayers.svg" alt="OpenLayers" class="resource-icon-img">
                 <div class="resource-info">
                   <h4>OpenLayers</h4>
                   <p>Biblioteca JavaScript para mapas interactivos avanzados</p>
                 </div>
               </a>
               <a href="https://leafletjs.com/" target="_blank" rel="noopener noreferrer" class="resource-link" aria-label="Sitio oficial de Leaflet">
-                <span class="resource-icon">🍃</span>
+                <img src="images/logo.leafleatjs.png" alt="Leaflet" class="resource-icon-img leaflet-resource">
                 <div class="resource-info">
                   <h4>Leaflet</h4>
                   <p>Biblioteca JavaScript ligera para mapas móviles</p>
                 </div>
               </a>
               <a href="https://overpass-turbo.eu/" target="_blank" rel="noopener noreferrer" class="resource-link" aria-label="Overpass Turbo para consultas OSM">
-                <span class="resource-icon">🔍</span>
+                <img src="images/overpass.svg" alt="Overpass Turbo" class="resource-icon-img">
                 <div class="resource-info">
                   <h4>Overpass Turbo</h4>
                   <p>Herramienta web para consultas avanzadas de OpenStreetMap</p>
@@ -1276,12 +1474,12 @@
               </a>
             </div>
           </div>
-        </div>
+      </div>
 
-        <!-- Pestaña Contacto -->
-        <div id="contact" class="tab-content" role="tabpanel" aria-labelledby="contact-tab">
+      <!-- Sección Contacto -->
+      <div class="tab-content" id="contact" role="tabpanel" aria-labelledby="contact-tab">
           <div class="about-content">
-            <h2 class="section-title">Contacto</h2>
+            <h2 id="contacto-section" class="section-title">Contacto</h2>
             
             <form class="contact-form" onsubmit="handleFormSubmit(event)">
               <div class="form-group">
@@ -1302,8 +1500,8 @@
               <button type="submit" class="submit-btn">Enviar Mensaje</button>
             </form>
           </div>
-        </div>
       </div>
+    </div>
     </main>
 
     <footer>
@@ -1324,6 +1522,9 @@
     }
 
     function switchTab(event, tabId) {
+      // Prevenir comportamiento por defecto
+      event.preventDefault();
+      
       // Ocultar todos los contenidos de pestañas
       const tabContents = document.querySelectorAll('.tab-content');
       tabContents.forEach(content => {
@@ -1337,10 +1538,18 @@
       });
 
       // Mostrar el contenido seleccionado
-      document.getElementById(tabId).classList.add('active');
+      const selectedTab = document.getElementById(tabId);
+      if (selectedTab) {
+        selectedTab.classList.add('active');
+      }
       
       // Activar el botón seleccionado
       event.target.classList.add('active');
+      
+      // Actualizar URL con anchor
+      if (history.pushState) {
+        history.pushState(null, null, `#${tabId}`);
+      }
     }
 
     function toggleDescription(btn) {
@@ -1493,6 +1702,108 @@
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       return emailRegex.test(email);
     }
+
+    function navigateToTab(sectionId) {
+      // Actualizar URL sin recargar la página
+      if (history.pushState) {
+        history.pushState(null, null, `#${sectionId}`);
+      }
+      
+      // Scroll suave al contenido
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    // Manejar enlaces anchor al cargar la página
+    document.addEventListener('DOMContentLoaded', function() {
+      const hash = window.location.hash.substring(1);
+      
+      // Si hay un hash y corresponde a una pestaña, activarla
+      if (hash && ['trabajos', 'about', 'recursos', 'contact'].includes(hash)) {
+        // Desactivar todas las pestañas
+        document.querySelectorAll('.tab-content').forEach(content => {
+          content.classList.remove('active');
+        });
+        document.querySelectorAll('.tab-button').forEach(button => {
+          button.classList.remove('active');
+        });
+        
+        // Activar la pestaña correspondiente
+        const targetTab = document.getElementById(hash);
+        const targetButton = document.getElementById(hash + '-tab');
+        
+        if (targetTab) {
+          targetTab.classList.add('active');
+        }
+        if (targetButton) {
+          targetButton.classList.add('active');
+        }
+      } else if (hash) {
+        // Para otros elementos con anchor, hacer scroll
+        const element = document.getElementById(hash);
+        if (element) {
+          setTimeout(() => {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 300);
+        }
+      }
+      
+      // Manejar cambios en la URL (botón atrás/adelante)
+      window.addEventListener('popstate', function() {
+        const hash = window.location.hash.substring(1);
+        
+        // Si el hash corresponde a una pestaña, activarla
+        if (hash && ['trabajos', 'about', 'recursos', 'contact'].includes(hash)) {
+          // Desactivar todas las pestañas
+          document.querySelectorAll('.tab-content').forEach(content => {
+            content.classList.remove('active');
+          });
+          document.querySelectorAll('.tab-button').forEach(button => {
+            button.classList.remove('active');
+          });
+          
+          // Activar la pestaña correspondiente
+          const targetTab = document.getElementById(hash);
+          const targetButton = document.getElementById(hash + '-tab');
+          
+          if (targetTab) {
+            targetTab.classList.add('active');
+          }
+          if (targetButton) {
+            targetButton.classList.add('active');
+          }
+        } else if (hash) {
+          // Para otros elementos con anchor, hacer scroll
+          const element = document.getElementById(hash);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      });
+      
+      // Scroll suave para enlaces internos
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          const targetId = this.getAttribute('href').substring(1);
+          const targetElement = document.getElementById(targetId);
+          
+          if (targetElement) {
+            e.preventDefault();
+            targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+            
+            // Actualizar URL
+            if (history.pushState) {
+              history.pushState(null, null, `#${targetId}`);
+            }
+          }
+        });
+      });
+    });
   </script>
 </body>
 </html>
