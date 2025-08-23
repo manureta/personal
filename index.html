@@ -3,8 +3,68 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Manuel Retamozo - Geolibre</title>
+  <title>Manuel Retamozo - Desarrollador GIS | Geolibre</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Manuel Retamozo - Desarrollador GIS especializado en sistemas geográficos para el sector público argentino. 19+ años de experiencia en INDEC, Ministerio de Educación y proyectos GIS.">
+  <meta name="keywords" content="GIS, Desarrollador GIS, Manuel Retamozo, INDEC, PostgreSQL, PostGIS, OpenLayers, Leaflet, Argentina, SIG">
+  <meta name="author" content="Manuel Retamozo">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://geolibre.com.ar">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Manuel Retamozo - Desarrollador GIS">
+  <meta property="og:description" content="Desarrollador GIS especializado en sistemas geográficos para el sector público argentino. 19+ años de experiencia.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_AR">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Manuel Retamozo - Desarrollador GIS">
+  <meta name="twitter:description" content="Desarrollador GIS especializado en sistemas geográficos para el sector público argentino.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🗺️%3C/text%3E%3C/svg%3E">
+  
+  <!-- Fonts locales -->
   <style>
+    /* Inter Font Local */
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap;
+      src: url('./fonts/inter-300.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('./fonts/inter-400.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url('./fonts/inter-500.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url('./fonts/inter-600.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -12,11 +72,30 @@
     }
 
     body {
-      background: linear-gradient(135deg, #040420 0%, #0a0a2e 50%, #16213e 100%);
+      background: linear-gradient(135deg, #0f1419 0%, #1e2328 25%, #2a3441 50%, #364152 75%, #425063 100%);
       min-height: 100vh;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       line-height: 1.6;
-      color: #E4DCE6;
+      color: #e8eaed;
+    }
+
+    /* Skip link for accessibility */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 6px;
+      background: #7dd3fc;
+      color: #0f1419;
+      padding: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 4px;
+      z-index: 1000;
+      transition: top 0.3s;
+    }
+
+    .skip-link:focus {
+      top: 6px;
     }
 
     .container {
@@ -27,26 +106,43 @@
 
     header {
       text-align: center;
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
       padding: 2rem 0;
     }
 
+    .hero-content {
+      margin-bottom: 2.5rem;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
     h1 {
-      font-size: 3rem;
-      font-weight: 300;
-      margin-bottom: 0.5rem;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-      background: linear-gradient(45deg, #E4DCE6, #D4CCD6);
+      font-size: 3.5rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+      background: linear-gradient(135deg, #7dd3fc 0%, #a78bfa 50%, #fbbf24 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      letter-spacing: -0.02em;
     }
 
     .subtitle {
-      font-size: 1.5rem;
-      color: #D4CCD6;
-      font-weight: 300;
-      margin-bottom: 2rem;
+      font-size: 1.8rem;
+      color: #7dd3fc;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 4px rgba(125, 211, 252, 0.3);
+    }
+
+    .tagline {
+      font-size: 1.1rem;
+      color: #bae6fd;
+      font-weight: 400;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.5;
     }
 
     .nav-links {
@@ -54,31 +150,188 @@
       justify-content: center;
       gap: 1rem;
       flex-wrap: wrap;
-      margin-bottom: 3rem;
+      margin-bottom: 1.5rem;
+      animation: fadeInUp 0.8s ease-out 0.2s both;
     }
 
     .nav-link {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 8px;
-      padding: 0.75rem 1.5rem;
+      background: rgba(30, 35, 40, 0.6);
+      border: 1px solid rgba(125, 211, 252, 0.2);
+      border-radius: 10px;
+      padding: 0.75rem 1.25rem;
       text-decoration: none;
-      color: #E4DCE6;
-      transition: all 0.3s ease;
-      backdrop-filter: blur(10px);
+      color: #e2e8f0;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      backdrop-filter: blur(15px);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      font-size: 0.9rem;
+    }
+
+    .nav-link::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(125, 211, 252, 0.1), transparent);
+      transition: left 0.5s;
+    }
+
+    .nav-link:hover::before {
+      left: 100%;
     }
 
     .nav-link:hover {
-      background: rgba(255, 255, 255, 0.2);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      background: rgba(125, 211, 252, 0.15);
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 8px 25px rgba(125, 211, 252, 0.2);
+      border-color: rgba(125, 211, 252, 0.6);
+      color: #ffffff;
+    }
+
+    .nav-icon {
+      font-size: 1.1em;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    }
+
+    .quick-nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 1.5rem 0;
+      padding: 0.75rem;
+      background: rgba(15, 20, 25, 0.4);
+      border-radius: 25px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(125, 211, 252, 0.1);
+    }
+
+    .quick-nav-link {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 15px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .quick-nav-link:hover {
+      color: #7dd3fc;
+      background: rgba(125, 211, 252, 0.1);
+      transform: translateY(-1px);
+    }
+
+    .quick-nav-link:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #7dd3fc, #a78bfa);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    .quick-nav-link:hover:before {
+      width: 80%;
+    }
+
+    /* Tab navigation styles */
+    .tab-navigation {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin: 1.5rem 0;
+      padding: 0.5rem;
+      background: rgba(15, 20, 25, 0.4);
+      border-radius: 25px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(125, 211, 252, 0.1);
+    }
+
+    .tab-button {
+      background: transparent;
+      border: 1px solid rgba(125, 211, 252, 0.2);
+      border-radius: 15px;
+      padding: 0.75rem 1.5rem;
+      color: #94a3b8;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+      font-weight: 500;
+      font-family: inherit;
+    }
+
+    .tab-button:hover {
+      color: #7dd3fc;
+      background: rgba(125, 211, 252, 0.1);
+      transform: translateY(-1px);
+      border-color: rgba(125, 211, 252, 0.4);
+    }
+
+    .tab-button.active {
+      background: rgba(125, 211, 252, 0.15);
+      color: #bae6fd;
+      border-color: rgba(125, 211, 252, 0.6);
+      box-shadow: 0 4px 15px rgba(125, 211, 252, 0.2);
+    }
+
+    /* Tab content styles */
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.3s ease-in;
+    }
+
+    .examples-section {
+      margin-bottom: 1rem;
+    }
+
+    .examples-title {
+      font-size: 1.2rem;
+      color: #bae6fd;
+      font-weight: 500;
+      text-align: center;
+      margin-bottom: 1rem;
+      opacity: 0.9;
+    }
+
+    .nav-icon-img {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+      filter: brightness(1.2) drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover .nav-icon-img {
+      filter: brightness(1.4) drop-shadow(0 2px 6px rgba(125, 211, 252, 0.4));
+      transform: scale(1.1);
+    }
+
+    .leaflet-logo {
+      width: 48px !important;
+      height: auto !important;
     }
 
     .section-title {
       font-size: 2rem;
       text-align: center;
       margin-bottom: 2rem;
-      color: #D4CCD6;
+      color: #94a3b8;
       font-weight: 300;
     }
 
@@ -90,41 +343,49 @@
     }
 
     .project-card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(51, 65, 85, 0.15);
+      border: 1px solid rgba(148, 163, 184, 0.15);
       border-radius: 12px;
-      padding: 2rem;
+      padding: 1.5rem;
       backdrop-filter: blur(10px);
       transition: all 0.3s ease;
+      position: relative;
     }
 
     .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      border-color: rgba(125, 211, 252, 0.3);
+      background: rgba(51, 65, 85, 0.25);
     }
 
     .project-title {
       font-size: 1.25rem;
       margin-bottom: 1rem;
-      color: #D0C0D0;
+      color: #cbd5e1;
     }
 
     .project-title a {
-      color: #D0C0D0;
+      color: #7dd3fc;
       text-decoration: none;
       border-bottom: 1px solid transparent;
-      transition: border-color 0.3s ease;
+      transition: all 0.3s ease;
     }
 
     .project-title a:hover {
-      border-bottom-color: #D0C0D0;
+      border-bottom-color: #7dd3fc;
+      color: #bae6fd;
     }
 
     .project-description {
-      color: #CCCCCC;
-      margin-bottom: 1.5rem;
-      font-size: 0.95rem;
+      color: #e1e8f0;
+      margin-bottom: 0.75rem;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      max-height: 6rem;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      position: relative;
     }
 
     .project-details {
@@ -135,16 +396,17 @@
     }
 
     .detail-section h4 {
-      color: #D0C0D0;
+      color: #7dd3fc;
       font-size: 1rem;
       margin-bottom: 0.5rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(125, 211, 252, 0.2);
       padding-bottom: 0.25rem;
     }
 
     .detail-section p {
-      font-size: 0.9rem;
-      color: #CCCCCC;
+      font-size: 0.85rem;
+      color: #d0dae3;
+      line-height: 1.4;
     }
 
     footer {
@@ -155,7 +417,653 @@
     }
 
     footer a {
-      color: #D4CCD6;
+      color: #7dd3fc;
+    }
+
+    /* Secciones de contenido */
+    .content-section {
+      margin-bottom: 4rem;
+      animation: fadeInUp 0.8s ease-out 0.4s both;
+    }
+
+    .section-subtitle {
+      font-size: 1.5rem;
+      color: #7dd3fc;
+      text-align: center;
+      margin: 3rem 0 2rem 0;
+      font-weight: 500;
+    }
+
+    .examples-section-in-work {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    .examples-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .example-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.5rem;
+      background: rgba(51, 65, 85, 0.15);
+      border: 1px solid rgba(148, 163, 184, 0.15);
+      border-radius: 12px;
+      text-decoration: none;
+      color: #e2e8f0;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .example-card:hover {
+      background: rgba(125, 211, 252, 0.1);
+      border-color: rgba(125, 211, 252, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(125, 211, 252, 0.15);
+    }
+
+    .example-icon {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      flex-shrink: 0;
+      margin-top: 0.25rem;
+      filter: brightness(1.1) drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+      transition: all 0.3s ease;
+    }
+
+    .example-card:hover .example-icon {
+      filter: brightness(1.3) drop-shadow(0 4px 8px rgba(125, 211, 252, 0.3));
+      transform: scale(1.05);
+    }
+
+    .leaflet-example {
+      width: 60px !important;
+      height: auto !important;
+    }
+
+    .example-info h4 {
+      font-size: 1.1rem;
+      color: #7dd3fc;
+      margin: 0 0 0.5rem 0;
+      font-weight: 600;
+    }
+
+    .example-info p {
+      font-size: 0.9rem;
+      color: #d0dae3;
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { 
+        opacity: 0; 
+        transform: translateY(30px); 
+      }
+      to { 
+        opacity: 1; 
+        transform: translateY(0); 
+      }
+    }
+
+    .about-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .about-section {
+      background: rgba(51, 65, 85, 0.15);
+      border: 1px solid rgba(148, 163, 184, 0.15);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .about-section h3 {
+      color: #7dd3fc;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .about-section p {
+      color: #d0dae3;
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+    }
+
+    .skills-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .skill-tag {
+      background: rgba(125, 211, 252, 0.1);
+      border: 1px solid rgba(125, 211, 252, 0.2);
+      border-radius: 4px;
+      padding: 0.4rem 0.7rem;
+      font-size: 0.85rem;
+      color: #bae6fd;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.3s ease;
+    }
+
+    .skill-tag:hover {
+      background: rgba(125, 211, 252, 0.15);
+      border-color: rgba(125, 211, 252, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .skill-icon {
+      font-size: 1rem;
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      padding: 1rem 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 30px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, #7dd3fc, rgba(125, 211, 252, 0.3));
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 1rem 0 1rem 60px;
+      margin-bottom: 1.5rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 21px;
+      top: 1.5rem;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #7dd3fc;
+      border: 3px solid rgba(15, 20, 25, 1);
+      box-shadow: 0 0 10px rgba(125, 211, 252, 0.3);
+    }
+
+    .timeline-content {
+      background: rgba(51, 65, 85, 0.15);
+      border: 1px solid rgba(148, 163, 184, 0.15);
+      border-radius: 8px;
+      padding: 1rem;
+    }
+
+    .timeline-year {
+      color: #7dd3fc;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .timeline-role {
+      color: #bae6fd;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-description {
+      color: #d0dae3;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    /* Elementos expandibles */
+
+    .expand-btn {
+      background: rgba(71, 85, 105, 0.6);
+      color: #e2e8f0;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      border-radius: 6px;
+      padding: 0.4rem 0.6rem;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin: 0.1rem 0 0.3rem 0;
+      box-shadow: none;
+      display: inline-block;
+    }
+
+    .expand-btn:hover {
+      background: rgba(71, 85, 105, 0.8);
+      border-color: rgba(125, 211, 252, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .project-details {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+      opacity: 0;
+      margin-top: 0.5rem;
+    }
+
+    .project-details.expanded {
+      max-height: 200px;
+      opacity: 1;
+    }
+
+    .project-description.expanded {
+      max-height: none;
+    }
+
+    .expand-description {
+      display: inline-block;
+      background: none;
+      padding: 0.25rem 0.5rem;
+      margin-left: 0.5rem;
+      font-size: 0.75rem;
+      color: #7dd3fc;
+      cursor: pointer;
+      border: 1px solid rgba(125, 211, 252, 0.3);
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      vertical-align: baseline;
+    }
+
+    .expand-description:hover {
+      background: rgba(125, 211, 252, 0.1);
+      border-color: rgba(125, 211, 252, 0.5);
+    }
+
+    /* Botón volver arriba */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: rgba(125, 211, 252, 0.9);
+      color: #0f1419;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(125, 211, 252, 0.3);
+      opacity: 0;
+      transform: translateY(20px);
+      backdrop-filter: blur(10px);
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .back-to-top:hover {
+      background: #7dd3fc;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(125, 211, 252, 0.4);
+    }
+
+    /* Loading states */
+    .tab-content.loading {
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .loading-spinner {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(125, 211, 252, 0.3);
+      border-top: 3px solid #7dd3fc;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    .tab-content.loading .loading-spinner {
+      display: block;
+    }
+
+    /* Social links */
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(71, 85, 105, 0.3);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      border-radius: 8px;
+      padding: 0.6rem 1rem;
+      text-decoration: none;
+      color: #bae6fd;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+    }
+
+    .social-link:hover {
+      background: rgba(71, 85, 105, 0.5);
+      border-color: rgba(125, 211, 252, 0.5);
+      transform: translateY(-2px);
+    }
+
+    /* Resources section */
+    .resources-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .resource-link {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.5rem;
+      background: rgba(51, 65, 85, 0.15);
+      border: 1px solid rgba(148, 163, 184, 0.15);
+      border-radius: 12px;
+      text-decoration: none;
+      color: #e2e8f0;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .resource-link:hover {
+      background: rgba(125, 211, 252, 0.1);
+      border-color: rgba(125, 211, 252, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(125, 211, 252, 0.15);
+    }
+
+    .resource-icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+      margin-top: 0.25rem;
+    }
+
+    .resource-icon-img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      flex-shrink: 0;
+      margin-top: 0.25rem;
+      filter: brightness(1.1) drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+      transition: all 0.3s ease;
+    }
+
+    .resource-link:hover .resource-icon-img {
+      filter: brightness(1.3) drop-shadow(0 4px 8px rgba(125, 211, 252, 0.3));
+      transform: scale(1.05);
+    }
+
+    .leaflet-resource {
+      width: 80px !important;
+      height: auto !important;
+    }
+
+    .subsection-nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem 0;
+      padding: 0.5rem;
+      background: rgba(51, 65, 85, 0.1);
+      border-radius: 15px;
+      border: 1px solid rgba(148, 163, 184, 0.1);
+    }
+
+    .subsection-link {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 0.8rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .subsection-link:hover {
+      color: #7dd3fc;
+      background: rgba(125, 211, 252, 0.1);
+    }
+
+    .resource-info h4 {
+      font-size: 1.1rem;
+      color: #7dd3fc;
+      margin: 0 0 0.5rem 0;
+      font-weight: 600;
+    }
+
+    .resource-info p {
+      font-size: 0.9rem;
+      color: #d0dae3;
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    /* Contact form */
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      color: #7dd3fc;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(51, 65, 85, 0.3);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      border-radius: 6px;
+      padding: 0.75rem;
+      color: #e8eaed;
+      font-family: inherit;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #7dd3fc;
+      box-shadow: 0 0 0 3px rgba(125, 211, 252, 0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .submit-btn {
+      background: linear-gradient(135deg, #7dd3fc, #a78bfa);
+      color: #0f1419;
+      border: none;
+      border-radius: 6px;
+      padding: 0.75rem 2rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(125, 211, 252, 0.3);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .submit-btn.loading {
+      position: relative;
+      color: transparent;
+    }
+
+    .submit-btn.loading::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 20px;
+      height: 20px;
+      border: 2px solid rgba(15, 20, 25, 0.3);
+      border-top: 2px solid #0f1419;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    /* Form validation styles */
+    .form-group.error input,
+    .form-group.error textarea {
+      border-color: #ef4444;
+      background: rgba(239, 68, 68, 0.05);
+    }
+
+    .error-message {
+      color: #ef4444;
+      font-size: 0.8rem;
+      margin-top: 0.25rem;
+      display: block;
+      opacity: 0;
+      transform: translateY(-5px);
+      transition: all 0.3s ease;
+    }
+
+    .form-group.error .error-message {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .success-message {
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.2);
+      color: #22c55e;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+    }
+
+    .success-message.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Profile section */
+    .profile-section {
+      margin-bottom: 2rem;
+    }
+
+    .profile-content {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .profile-photo {
+      flex-shrink: 0;
+    }
+
+    .photo-placeholder {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(125, 211, 252, 0.1), rgba(167, 139, 250, 0.1));
+      border: 2px solid rgba(125, 211, 252, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      transition: all 0.3s ease;
+    }
+
+    .photo-placeholder:hover {
+      transform: scale(1.05);
+      border-color: rgba(125, 211, 252, 0.4);
+      background: linear-gradient(135deg, rgba(125, 211, 252, 0.15), rgba(167, 139, 250, 0.15));
+    }
+
+    .profile-info {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .profile-info h3 {
+      font-size: 1.8rem;
+      color: #7dd3fc;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .profile-title {
+      color: #bae6fd;
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+    }
+
+    .profile-summary {
+      color: #d0dae3;
+      line-height: 1.6;
+      font-size: 0.95rem;
     }
 
     @media (max-width: 768px) {
@@ -164,12 +1072,66 @@
       }
       
       h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
+      }
+      
+      .subtitle {
+        font-size: 1.4rem;
+      }
+      
+      .tagline {
+        font-size: 1rem;
+        padding: 0 1rem;
       }
       
       .nav-links {
         flex-direction: column;
         align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+      }
+      
+      .nav-link {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+      }
+      
+      .examples-title {
+        font-size: 1.1rem;
+      }
+      
+      .quick-nav {
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      
+      .quick-nav-link {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+      }
+      
+      .subsection-nav {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      
+      .subsection-link {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.6rem;
+      }
+      
+      .examples-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      
+      .example-card {
+        padding: 1.25rem;
+      }
+      
+      .section-subtitle {
+        font-size: 1.3rem;
       }
       
       .project-details {
@@ -179,6 +1141,31 @@
       .projects-grid {
         grid-template-columns: 1fr;
       }
+
+      .project-details.expanded {
+        max-height: 300px;
+      }
+
+      .expand-btn {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.6rem;
+      }
+
+      .profile-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+      }
+      
+      .photo-placeholder {
+        width: 100px;
+        height: 100px;
+        font-size: 2.5rem;
+      }
+      
+      .profile-info {
+        min-width: unset;
+      }
     }
   </style>
 </head>
@@ -186,28 +1173,57 @@
 <body>
   <div class="container">
     <header>
-      <h1>Manuel Retamozo</h1>
-      <div class="subtitle">Geolibre</div>
+      <div class="hero-content">
+        <h1><a href="#trabajos" onclick="switchTab(event, 'trabajos')" style="text-decoration: none; color: inherit;">Manuel Retamozo</a></h1>
+        <div class="subtitle">Geolibre</div>
+        <div class="tagline">Desarrollador GIS Senior | 19+ años de experiencia en el sector público</div>
+      </div>
       
-      <nav class="nav-links">
-        <a href="mapa-chaja.html" class="nav-link">Mapa Chaja OpenLayers 9 y OSM</a>
-        <a href="leaflet-chaja.html" class="nav-link">Mapa Chaja Leaflet</a>
-        <a href="http://overpass-turbo.eu/s/qLN" class="nav-link" target="_blank">Barrios de Chaja</a>
-      </nav>
+      <div class="tab-navigation">
+        <button class="tab-button active" onclick="switchTab(event, 'trabajos')" id="trabajos-tab">Trabajos</button>
+        <button class="tab-button" onclick="switchTab(event, 'about')" id="about-tab">Sobre mí</button>
+        <button class="tab-button" onclick="switchTab(event, 'recursos')" id="recursos-tab">Recursos</button>
+        <button class="tab-button" onclick="switchTab(event, 'contact')" id="contact-tab">Contacto</button>
+      </div>
+
     </header>
 
-    <main>
-      <section>
-        <h2 class="section-title">Algunos trabajos realizados</h2>
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    
+    <main id="main-content">
+
+      <div class="tab-content active" id="trabajos" role="tabpanel" aria-labelledby="trabajos-tab">
+          <h2 id="trabajos-section" class="section-title">Algunos trabajos realizados</h2>
+          
+          <!-- Sección de Ejemplos de Mapas -->
+          <div class="examples-section">
+            <h3 class="examples-title">Ejemplos de Mapas Interactivos</h3>
+            <div class="nav-links">
+              <a href="mapa-chaja.html" class="nav-link" target="_blank" rel="noopener noreferrer">
+                <img src="images/logo-dark-openlayers.svg" alt="OpenLayers 9" class="nav-icon-img">
+                <span>OpenLayers 9</span>
+              </a>
+              <a href="leaflet-chaja.html" class="nav-link" target="_blank" rel="noopener noreferrer">
+                <img src="images/logo.leafleatjs.png" alt="Leaflet" class="nav-icon-img leaflet-logo">
+                <span>Leaflet</span>
+              </a>
+              <a href="http://overpass-turbo.eu/s/qLN" class="nav-link" target="_blank" rel="noopener noreferrer">
+                <img src="images/overpass.svg" alt="Overpass Turbo" class="nav-icon-img">
+                <span>Overpass Turbo</span>
+              </a>
+            </div>
+          </div>
         
         <div class="projects-grid">
           <article class="project-card">
             <h3 class="project-title">
-              <a href="http://snmb.ambiente.gob.ar/" target="_blank">Sistema Nacional de Monitoreo de Bosques</a>
+              <a href="https://snmb.ambiente.gob.ar/" target="_blank" rel="noopener noreferrer">Sistema Nacional de Monitoreo de Bosques</a>
             </h3>
             <p class="project-description">
-              La plataforma SIG-WEB del Sistema Nacional de Monitoreo de Bosques de la República Argentina, que funciona en el entorno de la Secretaría de Ambiente y Desarrollo Sustentable de la Nación, se enmarca en el programa REDD+, el cual puede ser un instrumento de conservación de los bosques y de combate a la pobreza para los pueblos de los países en vías de desarrollo, o bien resultar un potencial sojuzgamiento de nuestros pueblos a los intereses de los países hegemónicos a nivel mundial.
+              Plataforma SIG-WEB del Sistema Nacional de Monitoreo de Bosques de Argentina, enmarcada en el programa REDD+ para conservación de bosques...
+              <button class="expand-description" onclick="toggleDescription(this)" aria-expanded="false" aria-label="Expandir descripción completa">Ver más</button>
             </p>
+            <button class="expand-btn" onclick="toggleDetails(this)" aria-expanded="false" aria-label="Ver detalles técnicos del proyecto">Ver detalles técnicos</button>
             <div class="project-details">
               <div class="detail-section">
                 <h4>Tareas</h4>
@@ -222,11 +1238,13 @@
 
           <article class="project-card">
             <h3 class="project-title">
-              <a href="http://190.188.234.6/mapa/" target="_blank">IDEHab - Infraestructura de Datos Habitacionales Georreferenciados</a>
+              <a href="https://190.188.234.6/mapa/" target="_blank" rel="noopener noreferrer">IDEHab - Infraestructura de Datos Habitacionales Georreferenciados</a>
             </h3>
             <p class="project-description">
-              IDEHab es una Infraestructura de Datos Habitacionales Georreferenciados de la provincia de Buenos Aires, surge como una iniciativa para publicar información del déficit urbano-habitacional y de las distintas intervenciones públicas referidas a: procesos de regularización urbana y dominial, producción de loteos sociales, financiamiento de programas habitacionales, planes de integración socio-urbana y demás acciones en materia de mejoramiento habitacional.
+              Infraestructura de Datos Habitacionales Georreferenciados de Buenos Aires para publicar información del déficit urbano-habitacional...
+              <button class="expand-description" onclick="toggleDescription(this)" aria-expanded="false" aria-label="Expandir descripción completa">Ver más</button>
             </p>
+            <button class="expand-btn" onclick="toggleDetails(this)" aria-expanded="false" aria-label="Ver detalles técnicos del proyecto">Ver detalles técnicos</button>
             <div class="project-details">
               <div class="detail-section">
                 <h4>Tareas</h4>
@@ -241,11 +1259,13 @@
 
           <article class="project-card">
             <h3 class="project-title">
-              <a href="http://www.bahra.gob.ar/" target="_blank">Base de Asentamientos Humanos de la República Argentina (BAHRA)</a>
+              <a href="https://www.bahra.gob.ar/" target="_blank" rel="noopener noreferrer">Base de Asentamientos Humanos de la República Argentina (BAHRA)</a>
             </h3>
             <p class="project-description">
-              La Base de Asentamientos Humanos de la República Argentina (BAHRA) es producto del trabajo conjunto entre el Ministerio de Educación, a través del Programa Nacional Mapa Educativo, el Instituto Nacional de Estadística y Censos (INDEC) y el Instituto Geográfico Nacional (IGN).
+              Base de Asentamientos Humanos de Argentina (BAHRA) - trabajo conjunto entre Ministerio de Educación, INDEC e IGN...
+              <button class="expand-description" onclick="toggleDescription(this)" aria-expanded="false" aria-label="Expandir descripción completa">Ver más</button>
             </p>
+            <button class="expand-btn" onclick="toggleDetails(this)" aria-expanded="false" aria-label="Ver detalles técnicos del proyecto">Ver detalles técnicos</button>
             <div class="project-details">
               <div class="detail-section">
                 <h4>Tareas</h4>
@@ -260,11 +1280,13 @@
 
           <article class="project-card">
             <h3 class="project-title">
-              <a href="http://www.indec.gob.ar/gis/index_sig.html" target="_blank">Visor de Información Geográfica - INDEC</a>
+              <a href="https://www.indec.gob.ar/gis/index_sig.html" target="_blank" rel="noopener noreferrer">Visor de Información Geográfica - INDEC</a>
             </h3>
             <p class="project-description">
-              Este visor permite acceder a una selección de información correspondiente a datos geográficos, organización político administrativa y datos del Censo Nacional de Población, Hogares y Viviendas 2010.
+              Visor de información geográfica, organización político-administrativa y datos del Censo 2010...
+              <button class="expand-description" onclick="toggleDescription(this)" aria-expanded="false" aria-label="Expandir descripción completa">Ver más</button>
             </p>
+            <button class="expand-btn" onclick="toggleDetails(this)" aria-expanded="false" aria-label="Ver detalles técnicos del proyecto">Ver detalles técnicos</button>
             <div class="project-details">
               <div class="detail-section">
                 <h4>Tareas</h4>
@@ -279,12 +1301,14 @@
 
           <article class="project-card">
             <h3 class="project-title">
-              <a href="http://geoservicios.indec.gov.ar/codgeo/index.php?pagina=inicio" target="_blank">Codgeo - Unidades Geoestadísticas - INDEC</a>
-              <a href="http://www.indec.gob.ar/ayuda_visor_territorio.pdf" target="_blank" style="font-size: 0.8em; margin-left: 0.5rem;">(Tutorial)</a>
+              <a href="https://geoservicios.indec.gob.ar/codgeo/index.php?pagina=inicio" target="_blank">Codgeo - Unidades Geoestadísticas - INDEC</a>
+              <a href="https://www.indec.gob.ar/ayuda_visor_territorio.pdf" target="_blank" rel="noopener noreferrer" style="font-size: 0.8em; margin-left: 0.5rem;">(Tutorial)</a>
             </h3>
             <p class="project-description">
-              Este es un sistema interactivo que permite consultar los nombres, códigos y ubicación de las distintas unidades geográficas empleadas por el INDEC con fines estadísticos.
+              Sistema interactivo para consultar nombres, códigos y ubicación de unidades geográficas del INDEC...
+              <button class="expand-description" onclick="toggleDescription(this)" aria-expanded="false" aria-label="Expandir descripción completa">Ver más</button>
             </p>
+            <button class="expand-btn" onclick="toggleDetails(this)" aria-expanded="false" aria-label="Ver detalles técnicos del proyecto">Ver detalles técnicos</button>
             <div class="project-details">
               <div class="detail-section">
                 <h4>Tareas</h4>
@@ -316,15 +1340,470 @@
             </div>
           </article>
         </div>
-      </section>
+      </div>
+
+      <div class="tab-content" id="about" role="tabpanel" aria-labelledby="about-tab">
+          <div class="about-content">
+            <div id="perfil" class="about-section profile-section">
+              <div class="profile-content">
+                <div class="profile-photo">
+                  <div class="photo-placeholder">
+                    <span class="profile-icon">👨‍💻</span>
+                  </div>
+                </div>
+                <div class="profile-info">
+                  <h3>Manuel Retamozo</h3>
+                  <p class="profile-title">Desarrollador GIS Senior</p>
+                  <p class="profile-summary">Geoinquieto especialista en desarrollo geo full-stack y bases de datos espaciales. 19+ años especializándome en sistemas de información geográfica para el sector público argentino, con enfoque en democratización del acceso a datos territoriales.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="subsection-nav">
+              <a href="#perfil" class="subsection-link">Perfil</a>
+              <a href="#especialidades" class="subsection-link">Especialidades</a>
+              <a href="#trayectoria" class="subsection-link">Trayectoria</a>
+              <a href="#enfoque" class="subsection-link">Enfoque</a>
+              <a href="#redes" class="subsection-link">Redes</a>
+            </div>
+            <div class="about-section">
+              <h3>Trayectoria Profesional</h3>
+              <div class="timeline">
+                <div class="timeline-item">
+                  <div class="timeline-content">
+                    <div class="timeline-year">2012 - 2024</div>
+                    <div class="timeline-role">Desarrollador GIS - INDEC</div>
+                    <div class="timeline-description">12 años desarrollando y manteniendo aplicaciones GIS y sistemas de información geográfica para fines estadísticos en el Instituto Nacional de Estadística y Censos.</div>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-content">
+                    <div class="timeline-year">2007 - 2012</div>
+                    <div class="timeline-role">Programador GIS - Ministerio de Educación de la Nación</div>
+                    <div class="timeline-description">Desarrollo de sistemas GIS en el Programa Nacional Mapa Educativo, trabajando en la georreferenciación de establecimientos educativos y análisis territorial del sistema educativo argentino.</div>
+                  </div>
+                </div>
+                <div class="timeline-item">
+                  <div class="timeline-content">
+                    <div class="timeline-year">2005 - 2007</div>
+                    <div class="timeline-role">Analista Programador - Subsecretaría de Tierras</div>
+                    <div class="timeline-description">Desarrollo de aplicaciones para la gestión de hábitat social y administración de tierras.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="about-section">
+              <h3 id="especialidades">Especialidades Técnicas</h3>
+              <div class="skills-list">
+                <div class="skill-tag"><span class="skill-icon">🐘</span>PostgreSQL + PostGIS</div>
+                <div class="skill-tag"><span class="skill-icon">🌍</span>GeoServer</div>
+                <div class="skill-tag"><span class="skill-icon">🗺️</span>OpenLayers</div>
+                <div class="skill-tag"><span class="skill-icon">🍃</span>Leaflet</div>
+                <div class="skill-tag"><span class="skill-icon">⚡</span>JavaScript</div>
+                <div class="skill-tag"><span class="skill-icon">🐘</span>PHP</div>
+                <div class="skill-tag"><span class="skill-icon">🐍</span>Python</div>
+                <div class="skill-tag"><span class="skill-icon">🎨</span>HTML5/CSS3</div>
+                <div class="skill-tag"><span class="skill-icon">🧩</span>GeoExt</div>
+                <div class="skill-tag"><span class="skill-icon">💫</span>jQuery</div>
+                <div class="skill-tag"><span class="skill-icon">📍</span>GeoJSON</div>
+                <div class="skill-tag"><span class="skill-icon">🔗</span>WFS/WMS</div>
+              </div>
+            </div>
+
+            <div class="about-section">
+              <h3 id="trayectoria">Trayectoria y Experiencia</h3>
+              <p>Con más de 19 años de experiencia en el sector público argentino, me he especializado en el desarrollo de sistemas GIS para organismos gubernamentales de alto impacto.</p>
+              <p>Mi carrera abarca desde la gestión de tierras para hábitat social, pasando por sistemas de monitoreo ambiental, hasta la implementación de infraestructuras de datos estadísticos georreferenciados a nivel nacional.</p>
+              <p>Actualmente en INDEC, lidero el desarrollo de plataformas que democratizan el acceso a información estadística territorial, contribuyendo a la toma de decisiones basada en datos geográficos.</p>
+            </div>
+
+            <div class="about-section">
+              <h3 id="enfoque">Enfoque Profesional</h3>
+              <p>Mi trabajo se centra en crear puentes entre la tecnología GIS y las necesidades del sector público. Creo firmemente en el software libre y la apertura de datos geográficos como herramientas de democratización del conocimiento.</p>
+              <p>Todos mis desarrollos priorizan la accesibilidad, usabilidad y la implementación de estándares abiertos, garantizando que la información geográfica sea accesible para ciudadanos, investigadores y tomadores de decisiones.</p>
+            </div>
+
+
+            <div class="about-section">
+              <h3 id="redes">Contacto y Redes</h3>
+              <div class="social-links">
+                <a href="https://www.linkedin.com/in/mretamozo" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Perfil de LinkedIn de Manuel Retamozo">
+                  <span class="social-icon">💼</span>
+                  LinkedIn
+                </a>
+                <a href="https://github.com/manureta" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Perfil de GitHub de Manuel Retamozo">
+                  <span class="social-icon">👨‍💻</span>
+                  GitHub
+                </a>
+                <a href="mailto:manuel.retamozo@gmail.com" class="social-link" aria-label="Enviar email a Manuel Retamozo">
+                  <span class="social-icon">✉️</span>
+                  Email
+                </a>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <!-- Sección Recursos -->
+      <div class="tab-content" id="recursos" role="tabpanel" aria-labelledby="recursos-tab">
+          <div class="about-content">
+            <h2 id="recursos-section" class="section-title">Recursos y Herramientas</h2>
+            
+            <div class="resources-grid">
+              <a href="https://openlayers.org/" target="_blank" rel="noopener noreferrer" class="resource-link" aria-label="Sitio oficial de OpenLayers">
+                <img src="images/logo-dark-openlayers.svg" alt="OpenLayers" class="resource-icon-img">
+                <div class="resource-info">
+                  <h4>OpenLayers</h4>
+                  <p>Biblioteca JavaScript para mapas interactivos avanzados</p>
+                </div>
+              </a>
+              <a href="https://leafletjs.com/" target="_blank" rel="noopener noreferrer" class="resource-link" aria-label="Sitio oficial de Leaflet">
+                <img src="images/logo.leafleatjs.png" alt="Leaflet" class="resource-icon-img leaflet-resource">
+                <div class="resource-info">
+                  <h4>Leaflet</h4>
+                  <p>Biblioteca JavaScript ligera para mapas móviles</p>
+                </div>
+              </a>
+              <a href="https://overpass-turbo.eu/" target="_blank" rel="noopener noreferrer" class="resource-link" aria-label="Overpass Turbo para consultas OSM">
+                <img src="images/overpass.svg" alt="Overpass Turbo" class="resource-icon-img">
+                <div class="resource-info">
+                  <h4>Overpass Turbo</h4>
+                  <p>Herramienta web para consultas avanzadas de OpenStreetMap</p>
+                </div>
+              </a>
+            </div>
+          </div>
+      </div>
+
+      <!-- Sección Contacto -->
+      <div class="tab-content" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+          <div class="about-content">
+            <h2 id="contacto-section" class="section-title">Contacto</h2>
+            
+            <form class="contact-form" onsubmit="handleFormSubmit(event)">
+              <div class="form-group">
+                <label for="name">Nombre *</label>
+                <input type="text" id="name" name="name" class="form-input" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" class="form-input" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="message">Mensaje *</label>
+                <textarea id="message" name="message" rows="6" class="form-input" required placeholder="Cuéntame sobre tu proyecto GIS..."></textarea>
+              </div>
+              
+              <button type="submit" class="submit-btn">Enviar Mensaje</button>
+            </form>
+          </div>
+      </div>
+    </div>
     </main>
 
     <footer>
-      <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">
+      <a rel="license" href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">
         <img alt="Licencia Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
       </a><br />
-      Esta obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by/4.0/" target="_blank">Licencia Creative Commons Atribución 4.0 Internacional</a>.
+      Esta obra está bajo una <a rel="license" href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">Licencia Creative Commons Atribución 4.0 Internacional</a>.
     </footer>
   </div>
+
+  <script>
+    function toggleDetails(btn) {
+      const details = btn.nextElementSibling;
+      details.classList.toggle('expanded');
+      btn.textContent = details.classList.contains('expanded') 
+        ? 'Ocultar detalles' 
+        : 'Ver detalles técnicos';
+    }
+
+    function switchTab(event, tabId) {
+      // Prevenir comportamiento por defecto
+      event.preventDefault();
+      
+      // Ocultar todos los contenidos de pestañas
+      const tabContents = document.querySelectorAll('.tab-content');
+      tabContents.forEach(content => {
+        content.classList.remove('active');
+      });
+
+      // Desactivar todos los botones de pestañas
+      const tabButtons = document.querySelectorAll('.tab-button');
+      tabButtons.forEach(button => {
+        button.classList.remove('active');
+      });
+
+      // Mostrar el contenido seleccionado
+      const selectedTab = document.getElementById(tabId);
+      if (selectedTab) {
+        selectedTab.classList.add('active');
+      }
+      
+      // Activar el botón seleccionado
+      event.target.classList.add('active');
+      
+      // Actualizar URL con anchor
+      if (history.pushState) {
+        history.pushState(null, null, `#${tabId}`);
+      }
+    }
+
+    function toggleDescription(btn) {
+      const description = btn.parentElement;
+      const isExpanded = description.classList.contains('expanded');
+      
+      if (!isExpanded) {
+        const fullTexts = {
+          0: 'La plataforma SIG-WEB del Sistema Nacional de Monitoreo de Bosques de la República Argentina, que funciona en el entorno de la Secretaría de Ambiente y Desarrollo Sustentable de la Nación, se enmarca en el programa REDD+, el cual puede ser un instrumento de conservación de los bosques y de combate a la pobreza para los pueblos de los países en vías de desarrollo, o bien resultar un potencial sojuzgamiento de nuestros pueblos a los intereses de los países hegemónicos a nivel mundial.',
+          1: 'IDEHab es una Infraestructura de Datos Habitacionales Georreferenciados de la provincia de Buenos Aires, surge como una iniciativa para publicar información del déficit urbano-habitacional y de las distintas intervenciones públicas referidas a: procesos de regularización urbana y dominial, producción de loteos sociales, financiamiento de programas habitacionales, planes de integración socio-urbana y demás acciones en materia de mejoramiento habitacional.',
+          2: 'La Base de Asentamientos Humanos de la República Argentina (BAHRA) es producto del trabajo conjunto entre el Ministerio de Educación, a través del Programa Nacional Mapa Educativo, el Instituto Nacional de Estadística y Censos (INDEC) y el Instituto Geográfico Nacional (IGN).',
+          3: 'Este visor permite acceder a una selección de información correspondiente a datos geográficos, organización político administrativa y datos del Censo Nacional de Población, Hogares y Viviendas 2010.',
+          4: 'Este es un sistema interactivo que permite consultar los nombres, códigos y ubicación de las distintas unidades geográficas empleadas por el INDEC con fines estadísticos.'
+        };
+        
+        const cardIndex = Array.from(description.closest('.projects-grid').children).indexOf(description.closest('.project-card'));
+        const fullText = fullTexts[cardIndex];
+        
+        description.innerHTML = fullText + '<button class="expand-description" onclick="toggleDescription(this)">Ver menos</button>';
+        description.classList.add('expanded');
+      } else {
+        const shortTexts = {
+          0: 'Plataforma SIG-WEB del Sistema Nacional de Monitoreo de Bosques de Argentina, enmarcada en el programa REDD+ para conservación de bosques...',
+          1: 'Infraestructura de Datos Habitacionales Georreferenciados de Buenos Aires para publicar información del déficit urbano-habitacional...',
+          2: 'Base de Asentamientos Humanos de Argentina (BAHRA) - trabajo conjunto entre Ministerio de Educación, INDEC e IGN...',
+          3: 'Visor de información geográfica, organización político-administrativa y datos del Censo 2010...',
+          4: 'Sistema interactivo para consultar nombres, códigos y ubicación de unidades geográficas del INDEC...'
+        };
+        
+        const cardIndex = Array.from(description.closest('.projects-grid').children).indexOf(description.closest('.project-card'));
+        const shortText = shortTexts[cardIndex];
+        
+        description.innerHTML = shortText + '<button class="expand-description" onclick="toggleDescription(this)">Ver más</button>';
+        description.classList.remove('expanded');
+      }
+    }
+
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      
+      // Get form elements
+      const form = event.target;
+      const submitBtn = form.querySelector('.submit-btn');
+      const nameInput = form.querySelector('#name');
+      const emailInput = form.querySelector('#email');
+      const messageInput = form.querySelector('#message');
+      
+      // Clear previous errors
+      clearFormErrors(form);
+      
+      // Validate form
+      let hasErrors = false;
+      
+      // Validate name
+      if (!nameInput.value.trim()) {
+        showFieldError(nameInput, 'El nombre es obligatorio');
+        hasErrors = true;
+      }
+      
+      // Validate email
+      if (!emailInput.value.trim()) {
+        showFieldError(emailInput, 'El email es obligatorio');
+        hasErrors = true;
+      } else if (!isValidEmail(emailInput.value)) {
+        showFieldError(emailInput, 'Ingresa un email válido');
+        hasErrors = true;
+      }
+      
+      // Validate message
+      if (!messageInput.value.trim()) {
+        showFieldError(messageInput, 'El mensaje es obligatorio');
+        hasErrors = true;
+      } else if (messageInput.value.trim().length < 10) {
+        showFieldError(messageInput, 'El mensaje debe tener al menos 10 caracteres');
+        hasErrors = true;
+      }
+      
+      if (hasErrors) {
+        return;
+      }
+      
+      // Show loading state
+      submitBtn.disabled = true;
+      submitBtn.classList.add('loading');
+      
+      // Simulate form submission
+      setTimeout(() => {
+        // Hide loading state
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('loading');
+        
+        // Show success message
+        showSuccessMessage(form);
+        
+        // Reset form
+        form.reset();
+      }, 2000);
+    }
+    
+    function clearFormErrors(form) {
+      const errorGroups = form.querySelectorAll('.form-group.error');
+      errorGroups.forEach(group => {
+        group.classList.remove('error');
+      });
+      
+      // Remove existing success message
+      const existingSuccess = form.querySelector('.success-message');
+      if (existingSuccess) {
+        existingSuccess.remove();
+      }
+    }
+    
+    function showFieldError(input, message) {
+      const formGroup = input.closest('.form-group');
+      formGroup.classList.add('error');
+      
+      let errorMsg = formGroup.querySelector('.error-message');
+      if (!errorMsg) {
+        errorMsg = document.createElement('span');
+        errorMsg.className = 'error-message';
+        formGroup.appendChild(errorMsg);
+      }
+      errorMsg.textContent = message;
+    }
+    
+    function showSuccessMessage(form) {
+      const successMsg = document.createElement('div');
+      successMsg.className = 'success-message';
+      successMsg.innerHTML = '✅ Mensaje enviado correctamente. Te contactaré pronto.';
+      
+      form.insertBefore(successMsg, form.firstChild);
+      
+      // Trigger animation
+      setTimeout(() => {
+        successMsg.classList.add('show');
+      }, 100);
+      
+      // Remove message after 5 seconds
+      setTimeout(() => {
+        successMsg.classList.remove('show');
+        setTimeout(() => {
+          if (successMsg.parentNode) {
+            successMsg.remove();
+          }
+        }, 300);
+      }, 5000);
+    }
+    
+    function isValidEmail(email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+
+    function navigateToTab(sectionId) {
+      // Actualizar URL sin recargar la página
+      if (history.pushState) {
+        history.pushState(null, null, `#${sectionId}`);
+      }
+      
+      // Scroll suave al contenido
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    // Manejar enlaces anchor al cargar la página
+    document.addEventListener('DOMContentLoaded', function() {
+      const hash = window.location.hash.substring(1);
+      
+      // Si hay un hash y corresponde a una pestaña, activarla
+      if (hash && ['trabajos', 'about', 'recursos', 'contact'].includes(hash)) {
+        // Desactivar todas las pestañas
+        document.querySelectorAll('.tab-content').forEach(content => {
+          content.classList.remove('active');
+        });
+        document.querySelectorAll('.tab-button').forEach(button => {
+          button.classList.remove('active');
+        });
+        
+        // Activar la pestaña correspondiente
+        const targetTab = document.getElementById(hash);
+        const targetButton = document.getElementById(hash + '-tab');
+        
+        if (targetTab) {
+          targetTab.classList.add('active');
+        }
+        if (targetButton) {
+          targetButton.classList.add('active');
+        }
+      } else if (hash) {
+        // Para otros elementos con anchor, hacer scroll
+        const element = document.getElementById(hash);
+        if (element) {
+          setTimeout(() => {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 300);
+        }
+      }
+      
+      // Manejar cambios en la URL (botón atrás/adelante)
+      window.addEventListener('popstate', function() {
+        const hash = window.location.hash.substring(1);
+        
+        // Si el hash corresponde a una pestaña, activarla
+        if (hash && ['trabajos', 'about', 'recursos', 'contact'].includes(hash)) {
+          // Desactivar todas las pestañas
+          document.querySelectorAll('.tab-content').forEach(content => {
+            content.classList.remove('active');
+          });
+          document.querySelectorAll('.tab-button').forEach(button => {
+            button.classList.remove('active');
+          });
+          
+          // Activar la pestaña correspondiente
+          const targetTab = document.getElementById(hash);
+          const targetButton = document.getElementById(hash + '-tab');
+          
+          if (targetTab) {
+            targetTab.classList.add('active');
+          }
+          if (targetButton) {
+            targetButton.classList.add('active');
+          }
+        } else if (hash) {
+          // Para otros elementos con anchor, hacer scroll
+          const element = document.getElementById(hash);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      });
+      
+      // Scroll suave para enlaces internos
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          const targetId = this.getAttribute('href').substring(1);
+          const targetElement = document.getElementById(targetId);
+          
+          if (targetElement) {
+            e.preventDefault();
+            targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+            
+            // Actualizar URL
+            if (history.pushState) {
+              history.pushState(null, null, `#${targetId}`);
+            }
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
