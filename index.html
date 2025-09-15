@@ -1524,7 +1524,8 @@
             
             <form 
               class="contact-form" 
-              action="https://formspree.io/f/manuel.retamozo@gmail.com" 
+              id="contact-form"
+              action="https://formspree.io/f/xblaeznr"
               method="POST"
               onsubmit="handleFormSubmit(event)"
             >
@@ -1536,13 +1537,13 @@
               
               <div class="form-group">
                 <label for="email">Email *</label>
-                <input type="email" id="email" name="_replyto" class="form-input" required>
+                <input type="email" id="email" name="email" class="form-input" required>
                 <span class="error-message"></span>
               </div>
               
               <div class="form-group">
                 <label for="subject">Asunto</label>
-                <input type="text" id="subject" name="_subject" class="form-input" placeholder="Consulta sobre proyecto GIS">
+                <input type="text" id="subject" name="_subject" class="form-input" placeholder="Consulta sobre proyecto GIS" value="Contacto desde sitio web">
               </div>
               
               <div class="form-group">
@@ -1550,11 +1551,6 @@
                 <textarea id="message" name="message" rows="6" class="form-input" required placeholder="Cuéntame sobre tu proyecto GIS..."></textarea>
                 <span class="error-message"></span>
               </div>
-              
-              <!-- Campos ocultos de Formspree -->
-              <input type="hidden" name="_next" value="https://manureta.github.io/personal/?gracias=1">
-              <input type="hidden" name="_captcha" value="false">
-              <input type="text" name="_gotcha" style="display:none">
               
               <button type="submit" class="submit-btn" id="submit-btn">
                 <span class="btn-text">Enviar Mensaje</span>
@@ -1666,6 +1662,7 @@
       const nameInput = form.querySelector('#name');
       const emailInput = form.querySelector('#email');
       const messageInput = form.querySelector('#message');
+      const subjectInput = form.querySelector('#subject');
       const btnText = submitBtn.querySelector('.btn-text');
       const btnLoading = submitBtn.querySelector('.btn-loading');
       
@@ -1709,8 +1706,10 @@
       btnText.style.display = 'none';
       btnLoading.style.display = 'inline';
       
+      console.log('Formulario válido, enviando a Formspree...');
+      
       // Let the form submit naturally to Formspree
-      // Formspree will handle the actual submission
+      // The form action will handle the submission
       return true;
     }
     
