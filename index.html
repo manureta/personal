@@ -960,6 +960,30 @@
       animation: spin 0.8s linear infinite;
     }
 
+    .btn-loading {
+      display: none;
+    }
+
+    /* Estilos para mensajes de Formspree */
+    .form-group input[name="_gotcha"] {
+      display: none !important;
+    }
+
+    /* Mejoras visuales para el formulario */
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #7dd3fc;
+      box-shadow: 0 0 0 3px rgba(125, 211, 252, 0.1);
+      background: rgba(51, 65, 85, 0.4);
+    }
+    
+    .submit-btn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
+    }
+
     @keyframes spin {
       0% { transform: translate(-50%, -50%) rotate(0deg); }
       100% { transform: translate(-50%, -50%) rotate(360deg); }
@@ -1493,23 +1517,49 @@
           <div class="about-content">
             <h2 id="contacto-section" class="section-title">Contacto</h2>
             
-            <form class="contact-form" onsubmit="handleFormSubmit(event)">
+            <!-- Formulario funcional con Formspree (GitHub Pages compatible) -->
+            <div id="form-success-message" class="success-message" style="display: none;">
+              ✅ ¡Mensaje enviado correctamente! Te contactaré pronto.
+            </div>
+            
+            <form 
+              class="contact-form" 
+              action="https://formspree.io/f/manuel.retamozo@gmail.com" 
+              method="POST"
+              onsubmit="handleFormSubmit(event)"
+            >
               <div class="form-group">
                 <label for="name">Nombre *</label>
                 <input type="text" id="name" name="name" class="form-input" required>
+                <span class="error-message"></span>
               </div>
               
               <div class="form-group">
                 <label for="email">Email *</label>
-                <input type="email" id="email" name="email" class="form-input" required>
+                <input type="email" id="email" name="_replyto" class="form-input" required>
+                <span class="error-message"></span>
+              </div>
+              
+              <div class="form-group">
+                <label for="subject">Asunto</label>
+                <input type="text" id="subject" name="_subject" class="form-input" placeholder="Consulta sobre proyecto GIS">
               </div>
               
               <div class="form-group">
                 <label for="message">Mensaje *</label>
                 <textarea id="message" name="message" rows="6" class="form-input" required placeholder="Cuéntame sobre tu proyecto GIS..."></textarea>
+                <span class="error-message"></span>
               </div>
               
-              <button type="submit" class="submit-btn">Enviar Mensaje</button>
+              <!-- Campos ocultos de Formspree -->
+              <input type="hidden" name="_next" value="https://manureta.github.io/personal/?gracias=1">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="text" name="_gotcha" style="display:none">
+              
+              <button type="submit" class="submit-btn" id="submit-btn">
+                <span class="btn-text">Enviar Mensaje</span>
+                <span class="btn-loading" style="display: none;">Enviando...</span>
+              </button>
             </form>
           </div>
       </div>
@@ -1537,6 +1587,18 @@
       // Prevenir comportamiento por defecto
       event.preventDefault();
       
+      switchTabById(tabId);
+      
+      // Activar el botón seleccionado
+      event.target.classList.add('active');
+      
+      // Actualizar URL con anchor
+      if (history.pushState) {
+        history.pushState(null, null, `#${tabId}`);
+      }
+    }
+
+    function switchTabById(tabId) {
       // Ocultar todos los contenidos de pestañas
       const tabContents = document.querySelectorAll('.tab-content');
       tabContents.forEach(content => {
@@ -1555,12 +1617,10 @@
         selectedTab.classList.add('active');
       }
       
-      // Activar el botón seleccionado
-      event.target.classList.add('active');
-      
-      // Actualizar URL con anchor
-      if (history.pushState) {
-        history.pushState(null, null, `#${tabId}`);
+      // Activar el botón correspondiente
+      const targetButton = document.getElementById(tabId + '-tab');
+      if (targetButton) {
+        targetButton.classList.add('active');
       }
     }
 
@@ -1600,14 +1660,14 @@
     }
 
     function handleFormSubmit(event) {
-      event.preventDefault();
-      
       // Get form elements
       const form = event.target;
       const submitBtn = form.querySelector('.submit-btn');
       const nameInput = form.querySelector('#name');
       const emailInput = form.querySelector('#email');
       const messageInput = form.querySelector('#message');
+      const btnText = submitBtn.querySelector('.btn-text');
+      const btnLoading = submitBtn.querySelector('.btn-loading');
       
       // Clear previous errors
       clearFormErrors(form);
@@ -1640,25 +1700,18 @@
       }
       
       if (hasErrors) {
-        return;
+        event.preventDefault();
+        return false;
       }
       
       // Show loading state
       submitBtn.disabled = true;
-      submitBtn.classList.add('loading');
+      btnText.style.display = 'none';
+      btnLoading.style.display = 'inline';
       
-      // Simulate form submission
-      setTimeout(() => {
-        // Hide loading state
-        submitBtn.disabled = false;
-        submitBtn.classList.remove('loading');
-        
-        // Show success message
-        showSuccessMessage(form);
-        
-        // Reset form
-        form.reset();
-      }, 2000);
+      // Let the form submit naturally to Formspree
+      // Formspree will handle the actual submission
+      return true;
     }
     
     function clearFormErrors(form) {
@@ -1731,6 +1784,28 @@
     // Manejar enlaces anchor al cargar la página
     document.addEventListener('DOMContentLoaded', function() {
       const hash = window.location.hash.substring(1);
+      const urlParams = new URLSearchParams(window.location.search);
+      
+      // Mostrar mensaje de agradecimiento si viene desde Formspree
+      if (urlParams.get('gracias') === '1') {
+        // Activar pestaña de contacto y mostrar mensaje
+        switchTabById('contact');
+        const successMessage = document.getElementById('form-success-message');
+        if (successMessage) {
+          successMessage.style.display = 'block';
+          successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          
+          // Ocultar mensaje después de 10 segundos
+          setTimeout(() => {
+            successMessage.style.display = 'none';
+          }, 10000);
+        }
+        
+        // Limpiar URL
+        const newUrl = window.location.origin + window.location.pathname + '#contact';
+        window.history.replaceState({}, '', newUrl);
+        return;
+      }
       
       // Si hay un hash y corresponde a una pestaña, activarla
       if (hash && ['trabajos', 'about', 'recursos', 'contact'].includes(hash)) {
